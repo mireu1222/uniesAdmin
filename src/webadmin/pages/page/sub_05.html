@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub05 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '05',
+                title : '휴가관리',
+            })
+
+            @@include('./modules/list-search.html', {
+                period : 'type4',
+                select : true,
+                chkDouble : true,
+                chk1 : {
+                    label : '상태',
+                    all : true,
+                    slt : [
+                        '접수', '취소', '확인'
+                    ]
+                },
+                chk2 : {
+                    label : '구분',
+                    all : true,
+                    slt : [
+                        '연차', '반차', '병가', '경조'
+                    ]
+                },
+                search : {
+                    placeholder : '이름, 사번, 휴대폰번호 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                title : '휴가신청 목록',
+                order : '05'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                sub05type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./modules/modal.html', {
+        id : 'modify',
+        title : '휴가신청 관리',
+        sub05type : true,
+        btn : '저장'
+    })
+
+    @@include('./layout/foot.html')
+
+    <script>
+        function openWindowPop(url, name){
+            var options = 'width=814, height=800, status=no, menubar=no, toolbar=no, resizable=no';
+            window.open(url, name, options);
+        }
+    </script>
+</body>
+</html>

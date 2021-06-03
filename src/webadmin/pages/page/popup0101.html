@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <div class="winpop">
+        <h1 class="winpop-title">휴가이력</h1>
+        @@include('./modules/emp-info.html', {
+            table : true
+        })
+        @@include('./modules/filter.html', {
+            noTitle : true,
+        })
+        @@include('./modules/list-table.html', {
+            control : true,
+            excelOnly : true,
+            modal0101type : true
+        })
+        @@include('./modules/pagination.html')
+    </div>
+</body>
+</html>

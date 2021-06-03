@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub08 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '08',
+                dep2 : '08',
+                title : '일정수정'
+            })
+
+            @@include('./modules/write-table.html', {
+                caption : '수정',
+                sub08type : true,
+                modify : true,
+                button : true,
+                btntype : 'modify',
+                prev : 'sub_08.html'
+            })
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!-- write form -->
+<div class="form-wrap">
+    <table class="table row-table caption-top">
+        <caption><i class="bi bi-pencil-square me-2"></i>@@caption</caption>
+        <colgroup>
+            <col style="width:14%">
+            <col style="width:36%">
+            <col style="width:14%">
+            <col>
+        </colgroup>
+        @@if(context.sub0101type){
+        <tbody>
+            @@loop('./modules/table-input.html', [
+                {
+                    id : 'ipt-name',
+                    label : '이름'
+                }, {
+                    id : 'ipt-p-num',
+                    label : '사원번호'
+                }, {
+                    id : 'ipt-phone',
+                    label : '휴대폰번호'
+                }, {
+                    id : 'ipt-birth',
+                    label : '생년월일'
+                }, 
+                @@if(!context.modify){
+                    {
+                        pw : true,
+                        id : 'ipt-password',
+                        label : '비밀번호'
+                    }, 
+                }
+                {
+                    select3 : true
+                }, {
+                    select : true,
+                }, {
+                    id : 'ipt-shop-num',
+                    label : '매장연락처'
+                }, {
+                    address : true,
+                    label : '매장주소'
+                },
+                @@if(context.modify){
+                    {
+                        radio : true,
+                        id : 'rdo-state',
+                        label : '사원상태',
+                        slt : [
+                            '정상', '차단'
+                        ],
+                        input : true
+                    },
+                    {
+                        label : '입사일',
+                        text : '<p>2020-03-08</p><!-- 차단되어있을 때 노출. 차단 아닐 때 DOM 삭제 --><p class=block>차단사유 : 관리자 차단(2021-03-01 10:20)</p><!-- // 차단되어있을 때 노출. 차단 아닐 때 DOM 삭제 -->',
+                    },
+                    {
+                        label : '최근 접속일',
+                        text : '2020-03-08 17:08',
+                    },
+                }
+            ])
+        </tbody>
+        }
+        @@if(context.sub0101type2){
+        <tbody>
+            @@loop('./modules/table-input.html', [
+                {
+                    radio : true,
+                    label : '매출분석 권한',
+                    id : 'rdo-authority',
+                    slt : [
+                        '사용자 보기 권한 부여', '미지정'
+                    ]
+                }
+            ])
+        </tbody>
+        }
+        @@if(context.sub0101type3){
+        <tbody>
+            @@loop('./modules/table-input.html', [
+                {
+                    fire : true,
+                }
+            ])
+        </tbody>    
+        }
+        @@if(context.sub0701type){
+        <tbody>
+            @@loop('./modules/table-input.html', [
+                @@if(context.modify){
+                    {
+                        text : 'type2',
+                        label1 : '등록일',
+                        text1 : '2021-03-22 10:00',
+                        label2 : '작성자',
+                        text2 : '관리자'
+                    },
+                }
+                {
+                    label : '채널 선택',
+                    checkbox : true,
+                    id : 'chk-mall',
+                    all : true,
+                    slt : [
+                        '대형마트', '백화점', '면세점', '동인비'
+                    ]
+                }, 
+                {
+                    label : '노출여부',
+                    checkbox : true,
+                    id : 'chk-onoff',
+                    slt : [
+                        '노출함'
+                    ],
+                    addtext : '미체크 시 사용자 페이지에 노출되지 않습니다.'
+                }, 
+                {
+                    label : '공지 설정',
+                    checkbox : true,
+                    id : 'chk-notice',
+                    slt : [
+                        '공지'
+                    ],
+                    addtext : '체크 시 등록일과 상관없이 최상단에 노출됩니다.'
+                },
+                {
+                    label : '제목',
+                    id : 'inp-title',
+                    placeholder : '제목을 입력해주세요.'
+                },
+                {
+                    editor : true,
+                    label : '내용',
+                },
+                {
+                    file : true,
+                    label : '첨부파일',
+                    @@if(context.modify){
+                        modify : true,
+                    }
+                }
+            ])
+        </tbody>
+        }
+        @@if(context.sub08type){
+        <tbody>
+            @@if(context.modify){
+                @@loop('./modules/table-input.html', [
+                    {
+                        text : 'type2',
+                        label1 : '등록일',
+                        text1 : '2021-03-22 10:00',
+                        label2 : '작성자',
+                        text2 : '관리자'
+                    },
+                ])
+            }
+            @@loop('./modules/table-input.html', [
+                {
+                    checkbox : true,
+                    label : '채널',
+                    all : true,
+                    id : 'chk-channel',
+                    slt : [
+                        '대형마트', '백화점', '면세점', '동인비'
+                    ]
+                }
+            ])
+            <tr>
+                <th scope="row">일정</th>
+                <td colspan="3">
+                    <div class="datepicker-wrap w-20">
+                        <input type="text" class="form-control form-control-sm datepicker-here text-danger">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                </td>
+            </tr>
+            @@loop('./modules/table-input.html', [
+                {
+                    label : '제목',
+                    id : 'ipt-title',
+                    placeholder : '제목을 입력해주세요.'
+                }, {
+                    editor : 'text',
+                    label : '내용'
+                }
+            ])
+        </tbody>
+        }
+        @@if(context.sub0901type){
+        <tbody>
+            @@loop('./modules/table-input.html', [
+                {
+                    radio : true,
+                    label : '사용자 상태',
+                    id : 'rdo-state',
+                    slt : [
+                        '정상', '정지'
+                    ],
+                    input : true,
+                    placeholder : '정지 사유입력'
+                }, {
+                    radio : true,
+                    label : '법인',
+                    slt : [
+                        '유니에스', '유니토스'
+                    ]
+                }, {
+                    select3 : true
+                },
+                {
+                    select : true
+                },
+                {
+                    label : '부서',
+                    id : 'ipt-team',
+                }
+            ])
+            @@loop('./modules/table-input.html', [
+                {
+                    inputDouble : {
+                        btn : '중복확인'
+                    },
+                    label : '이메일(ID)',
+                    label2 : '이름'
+                }, {
+                    inputDouble : true,
+                    label : '휴대폰 번호',
+                    label2 : '직급'
+                }, 
+                @@if(!context.modify){
+                    {
+                        pw : true
+                    },
+                }
+            ])
+            @@if(context.modify){
+            <tr>
+                <th scope="col">등록일</th>
+                <td>2020-08-10 10:00</td>
+                <th scope="col">정지일</th>
+                <td class="text-danger">2020-08-10 10:00</td>
+            </tr>
+            <tr>
+                <th scope="col">최종 로그인 일</th>
+                <td>2020-08-10 10:10</td>
+                <th scope="col">비밀번호</th>
+                <td><button type="button" class="btn btn-sm btn-outline-danger">비밀번호 초기화</button></td>
+            </tr>
+            }
+            <tr>
+                <th scope="col">권한 설정</th>
+                <td colspan="3">
+                    <div class="list-group col-type" data-toggle="allChk">
+                        <label class="list-group-item bg-light fw-bold w-100">
+                            <input type="checkbox" id="chk-all" class="form-check-input me-1 chk-all" name="chk-authority" value="">
+                            전체권한
+                        </label>
+                        <label class="list-group-item">
+                            <input type="checkbox" id="chk-at01" class="form-check-input me-1" name="chk-authority" value="">
+                            인사기초관리
+                        </label>
+                        <label class="list-group-item">
+                            <input type="checkbox" id="chk-at02" class="form-check-input me-1" name="chk-authority" value="">
+                            매출관리
+                        </label>
+                        <label class="list-group-item">
+                            <input type="checkbox" id="chk-at03" class="form-check-input me-1" name="chk-authority" value="">
+                            근태관리
+                        </label>
+                        <label class="list-group-item">
+                            <input type="checkbox" id="chk-at04" class="form-check-input me-1" name="chk-authority" value="">
+                            연장신청관리
+                        </label>
+                        <label class="list-group-item">
+                            <input type="checkbox" id="chk-at05" class="form-check-input me-1" name="chk-authority" value="">
+                            휴가관리
+                        </label>
+                        <label class="list-group-item">
+                            <input type="checkbox" id="chk-at06" class="form-check-input me-1" name="chk-authority" value="">
+                            교육관리
+                        </label>
+                        <label class="list-group-item">
+                            <input type="checkbox" id="chk-at07" class="form-check-input me-1" name="chk-authority" value="">
+                            게시판
+                        </label>
+                        <label class="list-group-item">
+                            <input type="checkbox" id="chk-at08" class="form-check-input me-1" name="chk-authority" value="">
+                            일정관리
+                        </label>
+                        <label class="list-group-item">
+                            <input type="checkbox" id="chk-at09" class="form-check-input me-1" name="chk-authority" value="">
+                            시스템관리
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            @@loop('./modules/table-input.html', [
+                {
+                    radio : true,
+                    label : '매출분석',
+                    id : 'rdo-authority',
+                    slt : [
+                        '미지정', '사용자 보기 권한 부여'
+                    ],
+                }
+            ])
+        </tbody>
+        }
+        @@if(context.sub0902type){
+        <tbody>
+            @@loop('./modules/table-input.html', [
+                {
+                    label : '성명',
+                    text : '홍길동',
+                }, 
+                {
+                    label : '이메일(ID)',
+                    text : 'mail@mail.com',
+                },
+                {
+                    pwModify : true
+                }
+            ])
+        </tbody>
+        }
+    </table>
+    @@if(context.sub0101type && context.modify){
+    <button type="button" class="btn btn-sm btn-outline-danger absolute">비밀번호 초기화</button>
+    }
+</div>
+<!-- // write form -->
+@@if(context.button){
+<!-- submit button -->
+<div class="btn-wrap d-flex justify-content-end gap-1 mt-4">
+    @@if(context.btntype === 'save'){
+    <a href="/webadmin/page/@@prev" class="btn btn-gray submit">취소</a>
+    <button type="submit" class="btn btn-primary submit">저장</button>
+    }
+    @@if(context.btntype === 'reset'){
+    <input type="reset" class="btn btn-gray submit" value="취소">
+    <button type="submit" class="btn btn-primary submit">저장</button>
+    }
+    @@if(context.btntype === 'modify'){
+    <a href="/webadmin/page/@@prev" class="btn btn-gray submit me-auto">목록</a>
+    <button type="submit" class="btn btn-danger submit">삭제</button>
+    <button type="submit" class="btn btn-primary submit">수정</button>
+    }
+</div>
+<!-- // submit button -->
+}

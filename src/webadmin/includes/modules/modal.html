@@ -1,0 +1,1016 @@
+<!-- modal -->
+<div id="@@id-modal" class="modal fade@@if(context.size){ @@size}" tabindex="-1" aria-labelledby="@@id-modal-tit" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="@@id-modal-tit">@@title</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body">
+                @@if(context.sub0101type){
+                    @@include('./modules/emp-info.html', {
+                        table : true
+                    })
+                    @@include('./modules/filter.html', {
+                        noTitle : true,
+                    })
+                    @@include('./modules/list-table.html', {
+                        control : true,
+                        excelOnly : true,
+                        modal0101type : true
+                    })
+                    @@include('./modules/pagination.html')
+                }
+                @@if(context.sub0201type){
+                    <table class="table row-table">
+                        <colgroup>
+                            <col style="width:35%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            @@include('./modules/emp-info.html')
+                            <tr>
+                                <th scope="row">날짜</th>
+                                <td>
+                                    <div class="datepicker-wrap full">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipt-sales">매출</label></th>
+                                <td>
+                                    <div class="abs-input-wrap">
+                                        <input type="text" id="ipt-sales" class="form-control form-control-sm">
+                                        <span class="abs">원</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                @@if(context.sub0201type2){
+                    <table class="table row-table">
+                        <colgroup>
+                            <col style="width:35%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">근무처 선택</th>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="법인 선택">
+                                        <option value="">법인선택</option>
+                                        <option value="">유니에스</option>
+                                        <option value="">유니토스</option>
+                                    </select>
+                                    <select class="form-select form-select-sm mt-1" aria-label="소속 선택">
+                                        <option value="">소속선택</option>
+                                    </select>
+                                    <select class="form-select form-select-sm mt-1" aria-label="매장 선택">
+                                        <option value="">매장선택</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">채널 선택</th>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="채널 선택">
+                                        <option value="">채널선택</option>
+                                        <option value="">대형마트</option>
+                                        <option value="">백화점</option>
+                                        <option value="">면세점</option>
+                                        <option value="">동인비</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">날짜</th>
+                                <td>
+                                    <div class="datepicker-wrap full">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipt-sales-input">매출</label></th>
+                                <td>
+                                    <div class="abs-input-wrap">
+                                        <input type="text" id="ipt-sales-input" class="form-control form-control-sm">
+                                        <span class="abs">원</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                @@if(context.sub0202type){
+                    <table class="table row-table">
+                        <colgroup>
+                            <col style="width:35%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            @@include('./modules/emp-info.html')
+                            <tr>
+                                <th scope="row">신제품</th>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="신제품 선택">
+                                        <option value="">신제품1</option>
+                                        <option value="">신제품2</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">날짜</th>
+                                <td>
+                                    <div class="datepicker-wrap full">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipt-sale-info01">판매갯수</label></th>
+                                <td>
+                                    <div class="abs-input-wrap">
+                                        <input type="text" id="ipt-sale-info01" class="form-control form-control-sm">
+                                        <span class="abs">개</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipt-sale-info02">판매금액</label></th>
+                                <td>
+                                    <div class="abs-input-wrap">
+                                        <input type="text" id="ipt-sale-info02" class="form-control form-control-sm">
+                                        <span class="abs">원</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                @@if(context.sub0202type2){
+                    <table class="table row-table">
+                        <colgroup>
+                            <col style="width:35%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">근무처 선택</th>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="법인 선택">
+                                        <option value="">법인선택</option>
+                                        <option value="">유니에스</option>
+                                        <option value="">유니토스</option>
+                                    </select>
+                                    <select class="form-select form-select-sm mt-1" aria-label="소속 선택">
+                                        <option value="">소속선택</option>
+                                    </select>
+                                    <select class="form-select form-select-sm mt-1" aria-label="매장 선택">
+                                        <option value="">매장선택</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">채널 선택</th>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="채널 선택">
+                                        <option value="">채널선택</option>
+                                        <option value="">대형마트</option>
+                                        <option value="">백화점</option>
+                                        <option value="">면세점</option>
+                                        <option value="">동인비</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipt-newprod">신제품 항목입력</label></th>
+                                <td>
+                                    <input type="text" id="ipt-newprod" class="form-control form-control-sm">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">신제품 등록기간</th>
+                                <td>
+                                    <div class="d-flex align-items-center gap-1">
+                                        <div class="datepicker-wrap w-50">
+                                            <input type="text" class="form-control form-control-sm datepicker-here">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </div>
+                                        <span class="text">~</span>
+                                        <div class="datepicker-wrap w-50">
+                                            <input type="text" class="form-control form-control-sm datepicker-here">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                @@if(context.sub0202type3){
+                    <table class="table row-table">
+                        <colgroup>
+                            <col style="width:35%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">근무처 선택</th>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="법인 선택">
+                                        <option value="">법인선택</option>
+                                        <option value="">유니에스</option>
+                                        <option value="">유니토스</option>
+                                    </select>
+                                    <select class="form-select form-select-sm mt-1" aria-label="소속 선택">
+                                        <option value="">소속선택</option>
+                                    </select>
+                                    <select class="form-select form-select-sm mt-1" aria-label="매장 선택">
+                                        <option value="">매장선택</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">채널 선택</th>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="채널 선택">
+                                        <option value="">채널선택</option>
+                                        <option value="">대형마트</option>
+                                        <option value="">백화점</option>
+                                        <option value="">면세점</option>
+                                        <option value="">동인비</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><label for="ipt-newprod">신제품 항목입력</label></th>
+                                <td>
+                                    <input type="text" id="ipt-newprod" class="form-control form-control-sm" value="기입력된 신제품명">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">신제품 등록기간</th>
+                                <td>
+                                    <div class="d-flex align-items-center gap-1">
+                                        <div class="datepicker-wrap w-50">
+                                            <input type="text" class="form-control form-control-sm datepicker-here">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </div>
+                                        <span class="text">~</span>
+                                        <div class="datepicker-wrap w-50">
+                                            <input type="text" class="form-control form-control-sm datepicker-here">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                @@if(context.sub0301type){
+                    <table class="table row-table">
+                        <colgroup>
+                            <col style="width:35%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            @@include('./modules/emp-info.html')
+                            <tr>
+                                <th scope="row">날짜</th>
+                                <td>
+                                    <div class="datepicker-wrap full">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">출/퇴근 선택</th>
+                                <td>
+                                    <div class="d-flex gap-3 align-items-center">
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="checkbox" id="chk-tm01" name="chk-tm" value="">
+                                            <label class="form-check-label" for="chk-tm01">출근A</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="checkbox" id="chk-tm02" name="chk-tm" value="">
+                                            <label class="form-check-label" for="chk-tm02">출근B</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="checkbox" id="chk-tm03" name="chk-tm" value="">
+                                            <label class="form-check-label" for="chk-tm03">출근C</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="checkbox" id="chk-tm04" name="chk-tm" value="">
+                                            <label class="form-check-label" for="chk-tm04">퇴근F</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">시간</th>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <select class="form-select form-select-sm" aria-label="오전/오후 선택">
+                                            <option value="">AM</option>
+                                            <option value="">PM</option>
+                                        </select>
+                                        <select class="form-select form-select-sm" aria-label="시간 선택">
+                                            <option value="">00</option>
+                                        </select>
+                                        <select class="form-select form-select-sm" aria-label="분 선택">
+                                            <option value="">00</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                @@if(context.sub0301type2){
+                    <table class="table row-table">
+                        <colgroup>
+                            <col style="width:35%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            @@include('./modules/emp-info.html')
+                            <tr>
+                                <th scope="row">날짜</th>
+                                <td>
+                                    <div class="datepicker-wrap full">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">출/퇴근 선택</th>
+                                <td>
+                                    <div class="d-flex gap-3 align-items-center">
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="checkbox" id="chk-tm01" name="chk-tm" value="">
+                                            <label class="form-check-label" for="chk-tm01">출근A</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="checkbox" id="chk-tm02" name="chk-tm" value="">
+                                            <label class="form-check-label" for="chk-tm02">출근B</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="checkbox" id="chk-tm03" name="chk-tm" value="">
+                                            <label class="form-check-label" for="chk-tm03">출근C</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="checkbox" id="chk-tm04" name="chk-tm" value="">
+                                            <label class="form-check-label" for="chk-tm04">퇴근F</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">시간</th>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <select class="form-select form-select-sm" aria-label="오전/오후 선택">
+                                            <option value="">AM</option>
+                                            <option value="">PM</option>
+                                        </select>
+                                        <select class="form-select form-select-sm" aria-label="시간 선택">
+                                            <option value="">00</option>
+                                        </select>
+                                        <select class="form-select form-select-sm" aria-label="분 선택">
+                                            <option value="">00</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">사유</th>
+                                <td>
+                                    <textarea class="form-control form-control-sm"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                @@if(context.sub0301type3){
+                    @@include('./modules/emp-info.html', {
+                        table : true
+                    })
+                    @@include('./modules/filter.html', {
+                        noTitle : true,
+                    })
+                    @@include('./modules/list-table.html', {
+                        control:true,
+                        excelOnly:true,
+                        modal0301type:true
+                    })
+                    @@include('./modules/pagination.html')
+                }
+                @@if(context.sub04type){
+                    <table class="table row-table">
+                        <colgroup>
+                            <col style="width:35%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            @@include('./modules/emp-info.html')
+                            <tr>
+                                <th scope="row">연장일</th>
+                                <td>
+                                    <div class="datepicker-wrap full">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">시작</th>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <select class="form-select form-select-sm" aria-label="시간 선택">
+                                            <option value="">00</option>
+                                        </select>
+                                        <select class="form-select form-select-sm" aria-label="분 선택">
+                                            <option value="">00</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">종료</th>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <select class="form-select form-select-sm" aria-label="시간 선택">
+                                            <option value="">00</option>
+                                        </select>
+                                        <select class="form-select form-select-sm" aria-label="분 선택">
+                                            <option value="">00</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">사유</th>
+                                <td>
+                                    <textarea class="form-control form-control-sm"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">업무</th>
+                                <td>
+                                    <div class="d-flex gap-5 align-items-center">
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="radio" id="rdo-slt01" name="rdo-slt" value="">
+                                            <label class="form-check-label" for="rdo-slt01">확인(승인)</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="radio" id="rdo-slt02" name="rdo-slt" value="">
+                                            <label class="form-check-label" for="rdo-slt02">반려</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                @@if(context.sub05type){
+                    <table class="table row-table">
+                        <colgroup>
+                            <col style="width:35%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            @@include('./modules/emp-info.html')
+                            <tr>
+                                <th scope="row">구분항목</th>
+                                <td>연차</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">시작일</th>
+                                <td>
+                                    <div class="datepicker-wrap full">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">종료일</th>
+                                <td>
+                                    <div class="datepicker-wrap full">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">사유</th>
+                                <td>
+                                    <textarea class="form-control form-control-sm"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">업무</th>
+                                <td>
+                                    <div class="d-flex gap-5 align-items-center">
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="radio" id="rdo-slt01" name="rdo-slt" value="">
+                                            <label class="form-check-label" for="rdo-slt01">확인(승인)</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="radio" id="rdo-slt02" name="rdo-slt" value="">
+                                            <label class="form-check-label" for="rdo-slt02">반려</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                }
+                @@if(context.sub06type){
+                <table class="table row-table">
+                    <colgroup>
+                        <col style="width:35%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row"><label for="ipt-title">교육명</label></th>
+                            <td>
+                                <input type="text" id="ipt-title" class="form-control form-control-sm">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육기간</th>
+                            <td>
+                                <div class="d-flex align-items-center gap-1">
+                                    <div class="datepicker-wrap w-50">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                    <span class="text">~</span>
+                                    <div class="datepicker-wrap w-50">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipt-agency">교육기관</label></th>
+                            <td>
+                                <input type="text" id="ipt-agency" class="form-control form-control-sm">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육방법</th>
+                            <td>
+                                <div class="d-flex gap-5 align-items-center">
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" id="rdo-slt01" name="rdo-slt" value="">
+                                        <label class="form-check-label" for="rdo-slt01">오프라인 교육</label>
+                                    </div>
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" id="rdo-slt02" name="rdo-slt" value="">
+                                        <label class="form-check-label" for="rdo-slt02">온라인 교육</label>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm w-25 ms-n4">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">구분</th>
+                            <td>
+                                <select class="form-select form-select-sm w-50" aria-label="구분 선택">
+                                    <option value="">입문</option>
+                                    <option value="">기본</option>
+                                    <option value="">전문</option>
+                                    <option value="">필수</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육안내</th>
+                            <td>
+                                <div class="input-group">
+                                    <input type="file" class="form-control form-control-sm" id="input-files" aria-label="파일등록">
+                                    <button class="btn btn-sm btn-outline-danger" type="button">삭제</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipt-target">교육대상</label></th>
+                            <td>
+                                <input type="text" id="ipt-target" class="form-control form-control-sm">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                }
+                @@if(context.sub06type1){
+                <table class="table row-table">
+                    <colgroup>
+                        <col style="width:35%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">상태</th>
+                            <td>
+                                <div class="d-flex gap-5 align-items-center">
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" id="rdo-state01" name="rdo-state" value="" checked>
+                                        <label class="form-check-label" for="rdo-state01">정상</label>
+                                    </div>
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" id="rdo-state02" name="rdo-state" value="">
+                                        <label class="form-check-label" for="rdo-state02">중지</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipt-title">교육명</label></th>
+                            <td>
+                                <input type="text" id="ipt-title" class="form-control form-control-sm">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육기간</th>
+                            <td>
+                                <div class="d-flex align-items-center gap-1">
+                                    <div class="datepicker-wrap w-50">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                    <span class="text">~</span>
+                                    <div class="datepicker-wrap w-50">
+                                        <input type="text" class="form-control form-control-sm datepicker-here">
+                                        <i class="bi bi-calendar-check"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipt-agency">교육기관</label></th>
+                            <td>
+                                <input type="text" id="ipt-agency" class="form-control form-control-sm">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육방법</th>
+                            <td>
+                                <div class="d-flex gap-5 align-items-center">
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" id="rdo-slt01" name="rdo-slt" value="">
+                                        <label class="form-check-label" for="rdo-slt01">오프라인 교육</label>
+                                    </div>
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" id="rdo-slt02" name="rdo-slt" value="">
+                                        <label class="form-check-label" for="rdo-slt02">온라인 교육</label>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm w-25 ms-n4">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">구분</th>
+                            <td>
+                                <select class="form-select form-select-sm w-50" aria-label="구분 선택">
+                                    <option value="">입문</option>
+                                    <option value="">기본</option>
+                                    <option value="">전문</option>
+                                    <option value="">필수</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육안내</th>
+                            <td>
+                                <div class="input-group">
+                                    <input type="file" class="form-control form-control-sm" id="input-files" aria-label="파일등록">
+                                </div>
+                                <div class="file-list mt-2">
+                                    <div class="d-flex align-items-center">
+                                        <p class="file-name">기업로드된파일명.pdf</p>
+                                        <a href="#n" class="link-danger ms-2" aria-label="삭제"><i class="bi bi-x-square"></i></a>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipt-target">교육대상</label></th>
+                            <td>
+                                <input type="text" id="ipt-target" class="form-control form-control-sm">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                }
+                @@if(context.sub06type2){
+                <table class="table row-table">
+                    <colgroup>
+                        <col style="width:35%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">작성자</th>
+                            <td>김사원(202120102)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">채널</th>
+                            <td>대형마트</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">소속</th>
+                            <td>이마트</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">매장명</th>
+                            <td>강서구 이마트</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">구분</th>
+                            <td>입문</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육명</th>
+                            <td>업무입문교육</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육기간</th>
+                            <td>2021-04-01 ~ 2021-04-31</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육기관</th>
+                            <td>유니에스온라인교육센터</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육방법</th>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <p>온라인 교육</p>
+                                    <a href="#n" class="text-link ms-auto"><i class="bi bi-box-arrow-up-right me-1"></i>바로가기</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육안내</th>
+                            <td><a href="#n" class="text-link"><i class="bi bi-download me-1"></i>첨부파일.hwp</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">교육이수일</th>
+                            <td>
+                                <div class="datepicker-wrap">
+                                    <input type="text" class="form-control form-control-sm datepicker-here" data-position="top left">
+                                    <i class="bi bi-calendar-check"></i>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">이수여부</th>
+                            <td>
+                                <div class="d-flex gap-3 align-items-center">
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" id="rdo-comp01" name="rdo-comp" value="">
+                                        <label class="form-check-label" for="rdo-comp01">이수</label>
+                                    </div>
+                                    <div class="form-check m-0">
+                                        <input class="form-check-input" type="radio" id="rdo-comp02" name="rdo-comp" value="">
+                                        <label class="form-check-label" for="rdo-comp02">미이수</label>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                }
+                @@if(context.sub06type3){
+                <table class="table row-table mb-4">
+                    <colgroup>
+                        <col style="width:35%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">작성자</th>
+                            <td>김사원(202120102)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">채널</th>
+                            <td>대형마트</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">소속</th>
+                            <td>이마트</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">매장명</th>
+                            <td>강서구 이마트</td>
+                        </tr>
+                    </tbody>
+                </table>
+                @@include('./modules/list-table.html', {
+                    modal06type:true
+                })
+                }
+                @@if(context.sub0601type){
+                <table class="table table-hover align-middle text-center col-table" data-toggle="allChk">
+                    <thead>
+                        <tr>
+                            <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                            <th scope="col">번호</th>
+                            <th scope="col">교육방법</th>
+                            <th scope="col">구분</th>
+                            <th scope="col">교육명</th>
+                            <th scope="col">교육기간</th>
+                            <th scope="col">교육기관</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                            <td>4</td>
+                            <td>온라인</td>
+                            <td>입문</td>
+                            <td>신입사원 대상 업무입문교육</td>
+                            <td>2021-04-01 ~ 2021-04-30</td>
+                            <td>업무입문교육</td>
+                        </tr>
+                        <tr>
+                            <td><input class="form-check-input" type="checkbox" id="chk-list02" name="chk-list" value="" aria-label="항목 선택"></td>
+                            <td>3</td>
+                            <td>오프라인</td>
+                            <td>기본</td>
+                            <td>신입사원 대상 업무입문교육</td>
+                            <td>2021-04-01 ~ 2021-04-30</td>
+                            <td>업무입문교육</td>
+                        </tr>
+                        <tr>
+                            <td><input class="form-check-input" type="checkbox" id="chk-list03" name="chk-list" value="" aria-label="항목 선택"></td>
+                            <td>2</td>
+                            <td>온라인</td>
+                            <td>전문</td>
+                            <td>신입사원 대상 업무입문교육</td>
+                            <td>2021-04-01 ~ 2021-04-30</td>
+                            <td>업무입문교육</td>
+                        </tr>
+                        <tr>
+                            <td><input class="form-check-input" type="checkbox" id="chk-list04" name="chk-list" value="" aria-label="항목 선택"></td>
+                            <td>1</td>
+                            <td>오프라인</td>
+                            <td>필수</td>
+                            <td>서비스기본교육</td>
+                            <td>2021-04-01 ~ 2021-04-30</td>
+                            <td>서비스기본교육</td>
+                        </tr>
+                    </tbody>
+                </table>
+                }
+                @@if(context.sub0601type2){
+                <table class="table table-hover align-middle text-center col-table caption-top mb-4">
+                    <caption class="type2"><i class="bi bi-person-circle me-1"></i>사원 정보</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">이름</th>
+                            <th scope="col">사원번호</th>
+                            <th scope="col">휴대폰번호</th>
+                            <th scope="col">법인</th>
+                            <th scope="col">소속</th>
+                            <th scope="col">매장명</th>
+                            <th scope="col">채널</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>김사원</td>
+                            <td><a href="#n" class="text-link">202103001</a></td>
+                            <td>010-1234-1234</td>
+                            <td>유니에스</td>
+                            <td>본사</td>
+                            <td>강서구 이마트</td>
+                            <td>정관장 대형마트팀</td>
+                        </tr>
+                    </tbody>
+                </table>    
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle text-center col-table caption-top" data-toggle="allChk">
+                        <caption class="type2"><i class="bi bi-list-task me-1"></i>교육 내역</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-list-onm-all" name="chk-list-onm" value="" aria-label="리스트 전체 선택"></th>
+                                <th scope="col">번호</th>
+                                <th scope="col">교육방법</th>
+                                <th scope="col">구분</th>
+                                <th scope="col">교육명</th>
+                                <th scope="col">교육기간</th>
+                                <th scope="col">교육기관</th>
+                                <th scope="col">이수여부</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input class="form-check-input" type="checkbox" id="chk-list-onm01" name="chk-list-onm" value="" aria-label="항목 선택"></td>
+                                <td>4</td>
+                                <td>온라인</td>
+                                <td>입문</td>
+                                <td>신입사원 대상 업무입문교육</td>
+                                <td>2021-04-01 ~ 2021-04-30</td>
+                                <td>업무입문교육</td>
+                                <td>
+                                    <div class="d-flex gap-3 align-items-center">
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="radio" id="rdo-comp01" name="rdo-comp" value="" checked>
+                                            <label class="form-check-label" for="rdo-comp01">이수</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="radio" id="rdo-comp02" name="rdo-comp" value="">
+                                            <label class="form-check-label" for="rdo-comp02">미이수</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pt-2">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">선택 삭제</button>
+                </div>
+                }
+                @@if(context.sub0901type){
+                <input type="text" class="form-control form-control-sm" placeholder="추가할 부서명 입력">
+                }
+                @@if(context.sub0901type2){
+                <table class="table row-table">
+                    <colgroup>
+                        <col style="width:35%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">변경할 부서 선택</th>
+                            <td>
+                                <select class="form-select form-select-sm" aria-label="부서 선택">
+                                    <option value="">선택</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <label for="ipt-teamname">변경할 부서명</label>
+                            </th>
+                            <td>
+                                <input type="text" class="form-control form-control-sm" placeholder="변경할 부서명을 입력해주시기 바랍니다.">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                }
+                @@if(context.sub0903type){
+                <table class="table row-table">
+                    <colgroup>
+                        <col style="width:35%">
+                        <col>
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">법인</th>
+                            <td>유니에스</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">소속</th>
+                            <td>본사</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipt-code">코드</label></th>
+                            <td><input type="text" id="ipt-code" class="form-control form-control-sm" value="10001"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="ipt-shopname">매장명</label></th>
+                            <td><input type="text" id="ipt-shopname" class="form-control form-control-sm" value="롯데백화점 강서점"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                }
+            </div>
+            <div class="modal-footer">
+                @@if(!context.onebtn){
+                <button type="button" class="btn btn-gray" data-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-point">@@btn</button>
+                }
+                @@if(context.onebtn){
+                <button type="button" class="btn btn-gray" data-dismiss="modal">확인</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- // modal -->

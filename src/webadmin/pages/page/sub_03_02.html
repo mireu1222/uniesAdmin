@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub03 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '03',
+                title : '출근부',
+                dep2tab : true,
+                sub03 : '02'
+            })
+
+            @@include('./modules/list-search.html', {
+                period3 : true,
+                select2 : true,
+                search : {
+                    placeholder : '매장명, 소속 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                title : '출근부 목록<small>기간 : 2021년 03월 01일 ~ 2021년 03월 31일</small>',
+                order : '0302'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excelOnly : true,
+                sub0302type : true, 
+                date : 31
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

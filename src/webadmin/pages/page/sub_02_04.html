@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub02 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '02',
+                title : '매출현황',
+                dep2tab : true,
+                sub02 : '04'
+            })
+
+            @@include('./modules/list-search.html', {
+                period3 : true,
+                select : true,
+            })
+
+            @@include('./modules/filter.html', {
+                titleOnly : true,
+                title : '3월 3일(수) 기준 데이터'
+            })
+
+            <!-- !!! 매출관리 화면 table overflow bug로 인해 이 화면만 table-responsive로 감싸지 않음. -->
+            @@include('./modules/list-table.html', {
+                control : true,
+                excelOnly : true,
+                sub0204type : true
+            })
+            <!-- // !!! 매출관리 화면 table overflow bug로 인해 이 화면만 table-responsive로 감싸지 않음. -->
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

@@ -1,0 +1,1185 @@
+@@if(context.control){
+<!-- table control -->
+<div class="d-flex gap-1 p-2 border-top bg-light">
+    @@if(context.excelOnly){
+    <button type="button" class="btn btn-sm btn-outline-secondary ms-auto"><i class="bi bi-download me-1"></i>엑셀다운로드</button>    
+    }
+    @@if(!context.excelOnly){
+        <button type="button" class="btn btn-sm btn-outline-secondary me-auto">선택 삭제</button>
+        @@if(context.excel){
+        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-download me-1"></i>엑셀다운로드</button>
+        }
+        @@if(context.notice){
+        <button type="button" class="btn btn-sm btn-outline-secondary">공지해제</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">공지등록</button>
+        }
+        @@if(context.write){
+        <a href="/webadmin/page/@@write.link" type="button" class="btn btn-sm btn-outline-secondary">@@write.value</a>
+        }
+        @@if(context.modal){
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#@@modal.id-modal">@@modal.value</button>
+        }
+        @@if(context.modal2){
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#@@modal2.id-modal">@@modal2.value</button>
+        }
+    }
+</div>
+<!-- // table control -->
+}
+<!-- table -->
+@@if(!context.sub0204type && !context.sub06type){
+<div class="table-responsive">
+}
+    <table class="table table-hover align-middle text-center col-table tablesorter" data-toggle="allChk">
+        <thead>
+            @@if(context.sub0101type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">이름</th>
+                <th scope="col">사원번호</th>
+                <th scope="col">휴대폰번호</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">채널</th>
+                <th scope="col">매장명</th>
+                <th scope="col">주소</th>
+                <th scope="col">매장연락처</th>
+                <th scope="col" class="sorting">입사일</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.modal0101type){
+            <tr>
+                <th scope="col">신청일</th>
+                <th scope="col">구분</th>
+                <th scope="col">휴가기간</th>
+                <th scope="col">사유</th>
+                <th scope="col">처리일</th>
+                <th scope="col">처리자</th>
+            </tr>
+            }
+            @@if(context.sub0102type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">이름</th>
+                <th scope="col">사원번호</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">채널</th>
+                <th scope="col">매장명</th>
+                <th scope="col" class="sorting">입사일</th>
+                <th scope="col" class="sorting">퇴사일</th>
+                <th scope="col" class="sorting">퇴사코드</th>
+                <th scope="col">퇴사사유</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.sub0201type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col" class="sorting">매출일</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">채널</th>
+                <th scope="col">매장명</th>
+                <th scope="col">매출금액</th>
+                <th scope="col" class="sorting">등록일</th>
+                <th scope="col">작성자</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.sub0202type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">매출일</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">채널</th>
+                <th scope="col">매장명</th>
+                <th scope="col">신제품명</th>
+                <th scope="col">판매갯수</th>
+                <th scope="col">매출금액</th>
+                <th scope="col">등록일</th>
+                <th scope="col">작성자</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.sub0203type){
+            <tr>
+                <th scope="col">번호</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">채널</th>
+                <th scope="col">매장명</th>
+                <th scope="col">기준일</th>
+                <th scope="col">비교일</th>
+                <th scope="col">증감금액</th>
+                <th scope="col">증감률</th>
+                <th scope="col">등록일</th>
+                <th scope="col">작성자</th>
+            </tr>
+            }
+            @@if(context.sub0204type){
+            <tr>
+                <th scope="col" rowspan="2" class="align-middle">채널</th>
+                <th scope="col" colspan="4">매출현황</th>
+                <th scope="col" colspan="2">전년대비</th>
+                <th scope="col" rowspan="2" class="align-middle">비고</th>
+            </tr>
+            <tr>
+                <th scope="col">3월 목표</th>
+                <th scope="col">전일실적</th>
+                <th scope="col">누계실적</th>
+                <th scope="col">달성율</th>
+                <th scope="col">2020 누계실적</th>
+                <th scope="col">달성율</th>
+            </tr>
+            }
+            @@if(context.sub0301type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">날짜</th>
+                <th scope="col">이름</th>
+                <th scope="col">사원번호</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">채널</th>
+                <th scope="col">매장명</th>
+                <th scope="col" colspan="2">출근</th>
+                <th scope="col">출근시간</th>
+                <th scope="col" colspan="2">퇴근</th>
+                <th scope="col">퇴근시간</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.modal0301type){
+            <tr>
+                <th scope="col">날짜</th>
+                <th scope="col" colspan="2">출/퇴근</th>
+                <th scope="col">사유</th>
+                <th scope="col">처리일</th>
+                <th scope="col">처리자</th>
+            </tr>
+            }
+            @@if(context.sub0302type){
+            <tr>
+                <th scope="col" rowspan="2" class="align-middle">번호</th>
+                <th scope="col" rowspan="2" class="align-middle">소속</th>
+                <th scope="col" rowspan="2" class="align-middle sorting">매장명</th>
+                <th scope="col" rowspan="2" class="align-middle">성명</th>
+                <th scope="col" rowspan="2" class="align-middle">입사일</th>
+                <th scope="col" rowspan="2" class="align-middle">퇴사일</th>
+                @@for(var j=0; j < date; j++){
+                <th scope="col">`+[j+1]+`</th>
+                }
+                <th scope="col" rowspan="2" class="align-middle">총 연장근무시간</th>
+            </tr>
+            <tr>
+                <th scope="col">월</th>
+                <th scope="col">화</th>
+                <th scope="col">수</th>
+                <th scope="col">목</th>
+                <th scope="col">금</th>
+                <th scope="col">토</th>
+                <th scope="col">일</th>
+                <th scope="col">월</th>
+                <th scope="col">화</th>
+                <th scope="col">수</th>
+                <th scope="col">목</th>
+                <th scope="col">금</th>
+                <th scope="col">토</th>
+                <th scope="col">일</th>
+                <th scope="col">월</th>
+                <th scope="col">화</th>
+                <th scope="col">수</th>
+                <th scope="col">목</th>
+                <th scope="col">금</th>
+                <th scope="col">토</th>
+                <th scope="col">일</th>
+                <th scope="col">월</th>
+                <th scope="col">화</th>
+                <th scope="col">수</th>
+                <th scope="col">목</th>
+                <th scope="col">금</th>
+                <th scope="col">토</th>
+                <th scope="col">일</th>
+                <th scope="col">월</th>
+                <th scope="col">화</th>
+                <th scope="col">수</th>
+            </tr>
+            }
+            @@if(context.sub04type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">신청일</th>
+                <th scope="col">이름</th>
+                <th scope="col">사원번호</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">채널</th>
+                <th scope="col">매장명</th>
+                <th scope="col">상태</th>
+                <th scope="col">연장일</th>
+                <th scope="col">시작</th>
+                <th scope="col">종료</th>
+                <th scope="col">총 연장시간</th>
+                <th scope="col">확인자</th>
+                <th scope="col">확인일</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.sub05type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">신청일</th>
+                <th scope="col">이름</th>
+                <th scope="col">사원번호</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">채널</th>
+                <th scope="col">매장명</th>
+                <th scope="col" class="sorting">상태</th>
+                <th scope="col" class="sorting">구분</th>
+                <th scope="col">시작일</th>
+                <th scope="col">종료일</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.sub06type){
+            <tr>
+                <th scope="col" rowspan="2" class="align-middle"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col" rowspan="2" class="align-middle">번호</th>
+                <th scope="col" rowspan="2" class="align-middle">이름</th>
+                <th scope="col" rowspan="2" class="align-middle">사원번호</th>
+                <th scope="col" rowspan="2" class="align-middle">직급</th>
+                <th scope="col" rowspan="2" class="align-middle">휴대폰번호</th>
+                <th scope="col" rowspan="2" class="align-middle">법인</th>
+                <th scope="col" rowspan="2" class="align-middle">소속</th>
+                <th scope="col" rowspan="2" class="align-middle">매장명</th>
+                <th scope="col" rowspan="2" class="align-middle">채널</th>
+                <th scope="colgroup" colspan="2">교육현황</th>
+                <th scope="col" rowspan="2" class="align-middle">관리</th>
+            </tr>
+            <tr>
+                <th scope="col">이수</th>
+                <th scope="col">미이수</th>
+            </tr>
+            }
+            @@if(context.sub0602type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">교육방법</th>
+                <th scope="col">구분</th>
+                <th scope="col">교육명</th>
+                <th scope="col">교육기간</th>
+                <th scope="col">교육기관</th>
+                <th scope="col">교육안내</th>
+                <th scope="col">상태</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.modal06type){
+            <tr>
+                <th scope="col">구분</th>
+                <th scope="col">교육명</th>
+                <th scope="col">교육기간</th>
+                <th scope="col">결과</th>
+            </tr>
+            }
+            @@if(context.sub0701type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">노출</th>
+                <th scope="col">채널</th>
+                <th scope="col">제목</th>
+                <th scope="col">작성자</th>
+                <th scope="col">등록일</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.sub0901type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">이메일(ID)</th>
+                <th scope="col">이름</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">채널</th>
+                <th scope="col">매장명</th>
+                <th scope="col">직급</th>
+                <th scope="col">부서명</th>
+                <th scope="col">등록일</th>
+                <th scope="col">최종 로그인</th>
+                <th scope="col">상태</th>
+                <th scope="col">권한</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+            @@if(context.sub0903type){
+            <tr>
+                <th scope="col"><input class="form-check-input chk-all" type="checkbox" id="chk-all" name="chk-list" value="" aria-label="리스트 전체 선택"></th>
+                <th scope="col">번호</th>
+                <th scope="col">법인</th>
+                <th scope="col">소속</th>
+                <th scope="col">매장명</th>
+                <th scope="col">등록자</th>
+                <th scope="col">등록일</th>
+                <th scope="col">관리</th>
+            </tr>
+            }
+        </thead>
+        <tbody>
+            @@if(context.sub0101type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>김사원</td>
+                <td><a href="" class="text-link">202103001</a></td>
+                <td>010-0000-0000</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대 동대문면세점</td>
+                <td>서울시 강남구 00동 00면세점 00층</td>
+                <td>02-0000-0000</td>
+                <td>2020-03-08</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger" disabled>삭제</button><!-- 권한 없을 경우 disabled -->
+                        <a href="/webadmin/page/sub_01_01_modify.html" type="button" class="btn btn-sm btn-outline-primary">수정</a>
+                        <button type="button" class="btn btn-sm btn-outline-success" onclick="openWindowPop('/webadmin/page/popup0101.html', '휴가이력')">휴가이력</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list02" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>김사원</td>
+                <td><a href="" class="text-link">202103001</a></td>
+                <td>010-0000-0000</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대 동대문면세점</td>
+                <td>서울시 강남구 00동 00면세점 00층</td>
+                <td>02-0000-0000</td>
+                <td>2020-03-08</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        <a href="/webadmin/page/sub_01_01_modify.html" type="button" class="btn btn-sm btn-outline-primary">수정</a>
+                        <button type="button" class="btn btn-sm btn-outline-success" onclick="openWindowPop('/webadmin/page/popup0101.html', '휴가이력')">휴가이력</button>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.modal0101type){
+            <tr>
+                <td>2021-04-01(목)</td>
+                <td class="bg">연차</td>
+                <td class="bg">2021-03-08 ~ 2021-03-09</td>
+                <td>연차</td>
+                <td>2021-03-08 09:58</td>
+                <td>김매니저</td>
+            </tr>
+            <tr>
+                <td>2021-04-01(목)</td>
+                <td class="bg">반차</td>
+                <td class="bg">2021-03-08 ~ 2021-03-09</td>
+                <td>연차</td>
+                <td>2021-03-08 09:58</td>
+                <td>김매니저</td>
+            </tr>
+            <tr>
+                <td>2021-04-01(목)</td>
+                <td class="bg">경조</td>
+                <td class="bg">2021-03-08 ~ 2021-03-09</td>
+                <td>연차</td>
+                <td>2021-03-08 09:58</td>
+                <td>김매니저</td>
+            </tr>
+            <tr>
+                <td>2021-04-01(목)</td>
+                <td class="bg">병가</td>
+                <td class="bg">2021-03-08 ~ 2021-03-09</td>
+                <td>연차</td>
+                <td>2021-03-08 09:58</td>
+                <td>김매니저</td>
+            </tr>
+            }
+            @@if(context.sub0102type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>김사원</td>
+                <td><a href="" class="text-link">202103001</a></td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대 동대문면세점</td>
+                <td>2020-03-08</td>
+                <td class="text-danger">2021-03-05</td>
+                <td>1101</td>
+                <td>일신상의 사유</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-danger">복원</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list02" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>김사원</td>
+                <td><a href="" class="text-link">202103001</a></td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대 동대문면세점</td>
+                <td>2020-03-08</td>
+                <td class="text-danger">2021-03-05</td>
+                <td>1101</td>
+                <td>일신상의 사유</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-danger">복원</button>
+                </td>
+            </tr>
+            }
+            @@if(context.sub0201type){
+            <tr class="static">
+                <td colspan="7" class="text-dark">총 합계</td>
+                <td class="bg"><strong class="data">12,000,000</strong>원</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>2020-03-08(월)</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>강서구 이마트</td>
+                <td class="bg"><strong class="data">12,000,000</strong>원</td>
+                <td>2020-03-08 17:08</td>
+                <td>김사원</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">수정</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list02" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>998</td>
+                <td>2021-03-08(월)</td>
+                <td>1유니에스</td>
+                <td>본사</td>
+                <td>대형 정관장 대형마트팀</td>
+                <td>낭서구 이마트</td>
+                <td class="bg"><strong class="data">1,000,000</strong>원</td>
+                <td>2020-03-08 17:08</td>
+                <td>김사원</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">수정</button>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.sub0202type){
+            <tr class="static">
+                <td colspan="8" class="text-dark">총 합계</td>
+                <td><strong class="data">253</strong>개</td>
+                <td><strong class="data">24,000,000</strong>원</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>2020-03-08(월)</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>강서구 이마트</td>
+                <td>신제품1</td>
+                <td class="bg"><strong class="data">133</strong>개</td>
+                <td class="bg"><strong class="data">12,000,000</strong>원</td>
+                <td>2020-03-08 17:08</td>
+                <td>김사원</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">수정</button>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.sub0203type){
+            <tr class="static">
+                <td colspan="5" class="text-dark">총 합계</td>
+                <td><strong class="data">24,000,000</strong>원</td>
+                <td><strong class="data">24,000,000</strong>원</td>
+                <td><strong class="data">24,000,000</strong>원</td>
+                <td><p class="calc-result minus"><strong class="data">10</strong>%</p></td>
+                <!-- <td><p class="calc-result plus"><strong class="data">10</strong>%</p></td> -->
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>999</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 면세팀</td>
+                <td>서울 현대동대문면세점</td>
+                <td>
+                    <div class="row-data">
+                        <p class="date">2020-05-01 ~ 2020-05-20</p>
+                        <p class="sales"><strong class="data">21,000,000</strong>원</p>
+                    </div>
+                </td>
+                <td class="bg">
+                    <div class="row-data">
+                        <p class="date">2020-05-01 ~ 2020-05-20</p>
+                        <p class="sales"><strong class="data">17,000,000</strong>원</p>
+                    </div>
+                </td>
+                <td>
+                    <p class="calc-result minus"><strong class="data">4,000,000</strong>원</p>
+                </td>
+                <td>
+                    <p class="calc-result minus"><strong class="data">10</strong>%</p>
+                </td>
+                <td>2020-03-08 17:08</td>
+                <td>김사원</td>
+            </tr>
+            <tr>
+                <td>999</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 면세팀</td>
+                <td>서울 현대동대문면세점</td>
+                <td>
+                    <div class="row-data">
+                        <p class="date">2020-05-01 ~ 2020-05-20</p>
+                        <p class="sales"><strong class="data">21,000,000</strong>원</p>
+                    </div>
+                </td>
+                <td class="bg">
+                    <div class="row-data">
+                        <p class="date">2020-05-01 ~ 2020-05-20</p>
+                        <p class="sales"><strong class="data">31,000,000</strong>원</p>
+                    </div>
+                </td>
+                <td>
+                    <p class="calc-result plus"><strong class="data">10,000,000</strong>원</p>
+                </td>
+                <td>
+                    <p class="calc-result plus"><strong class="data">10</strong>%</p>
+                </td>
+                <td>2020-03-08 17:08</td>
+                <td>김사원</td>
+            </tr>
+            }
+            @@if(context.sub0204type){
+            <tr>
+                <td>마트</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <input type="text" class="form-control form-control-sm w-auto" aria-label="목표매출 입력">
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+                <td>22,638,700</td>
+                <td>1,346,911,400</td>
+                <td>76.84%</td>
+                <td>1,760,141,920</td>
+                <td>76.52%</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <textarea class="form-control form-control-sm w-auto" aria-label="비고내용 입력"></textarea>
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>백화점</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <input type="text" class="form-control form-control-sm w-auto" aria-label="목표매출 입력">
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+                <td>22,638,700</td>
+                <td>1,346,911,400</td>
+                <td>76.84%</td>
+                <td>1,760,141,920</td>
+                <td>76.52%</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <textarea class="form-control form-control-sm w-auto" aria-label="비고내용 입력"></textarea>
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>백화점</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <input type="text" class="form-control form-control-sm w-auto" aria-label="목표매출 입력">
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+                <td>22,638,700</td>
+                <td>1,346,911,400</td>
+                <td>76.84%</td>
+                <td>1,760,141,920</td>
+                <td>76.52%</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <textarea class="form-control form-control-sm w-auto" aria-label="비고내용 입력"></textarea>
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>면세</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <input type="text" class="form-control form-control-sm w-auto" aria-label="목표매출 입력">
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+                <td>22,638,700</td>
+                <td>1,346,911,400</td>
+                <td>76.84%</td>
+                <td>1,760,141,920</td>
+                <td>76.52%</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <textarea class="form-control form-control-sm w-auto" aria-label="비고내용 입력"></textarea>
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>동인비</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <input type="text" class="form-control form-control-sm w-auto" aria-label="목표매출 입력">
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+                <td>22,638,700</td>
+                <td>1,346,911,400</td>
+                <td>76.84%</td>
+                <td>1,760,141,920</td>
+                <td>76.52%</td>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <textarea class="form-control form-control-sm w-auto" aria-label="비고내용 입력"></textarea>
+                        <button class="btn btn-sm btn-outline-secondary" type="button">저장</button>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.sub0301type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>2020-03-08(월)</td>
+                <td>김사원</td>
+                <td><a href="#n" class="text-link">202103001</a></td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대동대문면세점</td>
+                <td class="bg">출근</td>
+                <td class="bg">A</td>
+                <td class="bg">2021-03-08 08:45</td>
+                <td class="bg2">퇴근</td>
+                <td class="bg2">F</td>
+                <td class="bg2">2021-03-08 18:08</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">수정</button>
+                        <button type="button" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#list-modal">이력</button>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.modal0301type){
+            <tr>
+                <td>2021-04-01(목)</td>
+                <td class="bg">출근A</td>
+                <td class="bg">2021-03-08 08:58</td>
+                <td>입력한 수정사유 입력한 수정사유 입력한 수정사유 입력한 수정사유</td>
+                <td>2021-03-08 09:58</td>
+                <td>관리자</td>
+            </tr>
+            <tr>
+                <td>2021-04-01(목)</td>
+                <td class="bg">퇴근F</td>
+                <td class="bg">2021-03-08 08:58</td>
+                <td></td>
+                <td>2021-03-08 09:58</td>
+                <td>관리자</td>
+            </tr>
+            <tr>
+                <td>2021-04-01(목)</td>
+                <td class="bg">출근A</td>
+                <td class="bg">2021-03-08 08:58</td>
+                <td></td>
+                <td>2021-03-08 09:58</td>
+                <td>관리자</td>
+            </tr>
+            }
+            @@if(context.sub0302type){
+            <tr>
+                <td>999</td>
+                <td>본사</td>
+                <td>현대면세점 동대문점</td>
+                <td>홍길동</td>
+                <td>2020-03-08</td>
+                <td class="text-danger">2021-03-05</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>연</td>
+                <td>반</td>
+                <td>병</td>
+                <td>경</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>6:00</td>
+            </tr>
+            <tr>
+                <td>999</td>
+                <td>본사</td>
+                <td>인천공항 면세점</td>
+                <td>홍길동</td>
+                <td>2020-03-08</td>
+                <td class="text-danger"></td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>연</td>
+                <td>반</td>
+                <td>병</td>
+                <td>경</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>휴</td>
+                <td>A</td>
+                <td>B</td>
+                <td>C</td>
+                <td>6:00</td>
+            </tr>
+            }
+            @@if(context.sub04type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>2020-03-08(월) 17:08</td>
+                <td>김사원</td>
+                <td><a href="#n" class="text-link">202103001</a></td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대동대문면세점</td>
+                <td class="text-success">접수</td><!-- 접수일 때 .text-success -->
+                <td>2020-03-08(월)</td>
+                <td>18:00</td>
+                <td>21:00</td>
+                <td>3:00</td>
+                <td>매니저</td>
+                <td>2020-03-08 17:08</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <a href="javascript:openWindowPop('/webadmin/page/popup01.html', '연장근무신청서')" type="button" class="btn btn-sm btn-outline-success">신청서</a>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">관리</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list02" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>2020-03-08(월) 17:08</td>
+                <td>김사원</td>
+                <td><a href="#n" class="text-link">202103001</a></td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대동대문면세점</td>
+                <td class="text-danger">취소</td><!-- 취소일 때 .text-danger -->
+                <td>2020-03-08(월)</td>
+                <td>18:00</td>
+                <td>21:00</td>
+                <td>3:00</td>
+                <td>매니저</td>
+                <td>2020-03-08 17:08</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <a href="javascript:openWindowPop('/webadmin/page/popup01.html', '연장근무신청서')" type="button" class="btn btn-sm btn-outline-success">신청서</a>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">관리</button>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.sub05type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>2020-03-08(월) 17:08</td>
+                <td>김사원</td>
+                <td><a href="#n" class="text-link">202103001</a></td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대동대문면세점</td>
+                <td class="text-primary">접수</td><!-- 접수일 때 .text-primary -->
+                <td>연차</td>
+                <td>2020-03-08(월)</td>
+                <td>2020-03-09(화)</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <a href="javascript:openWindowPop('/webadmin/page/popup02.html', '휴가신청서')" type="button" class="btn btn-sm btn-outline-success">신청서</a>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">관리</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>2020-03-08(월) 17:08</td>
+                <td>김사원</td>
+                <td><a href="#n" class="text-link">202103001</a></td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대동대문면세점</td>
+                <td class="text-success">확인</td><!-- 확인일 때 .text-success -->
+                <td>연차</td>
+                <td>2020-03-08(월)</td>
+                <td>2020-03-09(화)</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <a href="javascript:openWindowPop('/webadmin/page/popup02.html', '휴가신청서')" type="button" class="btn btn-sm btn-outline-success">신청서</a>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">관리</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list02" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>2020-03-08(월) 17:08</td>
+                <td>김사원</td>
+                <td><a href="#n" class="text-link">202103001</a></td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대동대문면세점</td>
+                <td class="text-secondary">취소</td><!-- 취소일 때 .text-secondary -->
+                <td>반차</td>
+                <td>2020-03-08(월)</td>
+                <td>2020-03-09(화)</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <a href="javascript:openWindowPop('/webadmin/page/popup02.html', '휴가신청서')" type="button" class="btn btn-sm btn-outline-success">신청서</a>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">관리</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list02" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>2020-03-08(월) 17:08</td>
+                <td>김사원</td>
+                <td><a href="#n" class="text-link">202103001</a></td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>서울 현대동대문면세점</td>
+                <td class="text-danger">반려</td><!-- 반려일 때 .text-danger -->
+                <td>반차</td>
+                <td>2020-03-08(월)</td>
+                <td>2020-03-09(화)</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <a href="javascript:openWindowPop('/webadmin/page/popup02.html', '휴가신청서')" type="button" class="btn btn-sm btn-outline-success">신청서</a>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">관리</button>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.sub06type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>김사원</td>
+                <td><a href="#n" class="text-link">202103001</a></td>
+                <td>매니저</td>
+                <td>010-1234-1234</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>강서구 이마트</td>
+                <td>정관장 대형마트팀</td>
+                <td>10</td>
+                <td>11</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#set-modal">관리</button>
+                </td>
+            </tr>
+            }
+            @@if(context.sub0602type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>4</td>
+                <td>온라인</td>
+                <td>입문</td>
+                <td>신입사원 대상 업무입문교육</td>
+                <td>2021-04-01 ~ 2021-04-30</td>
+                <td>업무입문교육</td>
+                <td><a href="#n" class="text-link"><i class="bi bi-file-earmark-text"></i></a></td>
+                <td class="text-success">정상</td><!-- 정상일 때 .text-success -->
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">수정</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list02" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>4</td>
+                <td>온라인</td>
+                <td>기본</td>
+                <td>신입사원 대상 업무입문교육</td>
+                <td>2021-04-01 ~ 2021-04-30</td>
+                <td>업무입문교육</td>
+                <td><a href="#n" class="text-link"><i class="bi bi-file-earmark-text"></i></a></td>
+                <td class="text-danger">중지</td><!-- 중지일 때 .text-danger -->
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">수정</button>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.modal06type){
+            <tr>
+                <td>입문</td>
+                <td>업무입문교육</td>
+                <td>2021-04-01 ~ 2021-04-31</td>
+                <td class="text-danger">미이수</td><!-- 미이수시 .text-danger -->
+            </tr>
+            <tr>
+                <td>기본</td>
+                <td>서비스기본교육</td>
+                <td>2021-04-01 ~ 2021-04-31</td>
+                <td class="text-success">이수</td><!-- 이수시 .text-success -->
+            </tr>
+            }
+            @@if(context.sub0701type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td class="text-danger">공지</td>
+                <td>노출</td>
+                <td>대형마트</td>
+                <td class="text-start">
+                    @@if(context.sub0701type !== 'type2'){
+                    <a href="/webadmin/page/sub_07_01_view.html" class="text-link">메인 공지사항입니다.<span class="badge bg-danger ms-2">N</span></a>
+                    }
+                    @@if(context.sub0701type === 'type2'){
+                    <a href="/webadmin/page/sub_07_02_view.html" class="text-link">메인 공지사항입니다.<span class="badge bg-danger ms-2">N</span></a>
+                    }
+                </td>
+                <td>관리자</td>
+                <td>2021-04-01 10:20</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        @@if(context.sub0701type !== 'type2'){
+                        <a href="/webadmin/page/sub_07_01_modify.html" class="btn btn-sm btn-outline-primary">수정</a>
+                        }
+                        @@if(context.sub0701type === 'type2'){
+                        <a href="/webadmin/page/sub_07_02_modify.html" class="btn btn-sm btn-outline-primary">수정</a>
+                        }
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>비노출</td>
+                <td>대형마트</td>
+                <td class="text-start">
+                    @@if(context.sub0701type !== 'type2'){
+                    <a href="/webadmin/page/sub_07_01_view.html" class="text-link">메인 공지사항입니다.</a>
+                    }
+                    @@if(context.sub0701type === 'type2'){
+                    <a href="/webadmin/page/sub_07_02_view.html" class="text-link">메인 공지사항입니다.</a>
+                    }
+                </td>
+                <td>관리자</td>
+                <td>2021-04-01 10:20</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        @@if(context.sub0701type !== 'type2'){
+                        <a href="/webadmin/page/sub_07_01_modify.html" class="btn btn-sm btn-outline-primary">수정</a>
+                        }
+                        @@if(context.sub0701type === 'type2'){
+                        <a href="/webadmin/page/sub_07_02_modify.html" class="btn btn-sm btn-outline-primary">수정</a>
+                        }
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.sub0901type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>aaa@mail.com</td>
+                <td>김마스터</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>강서구 이마트</td>
+                <td>팀장</td>
+                <td>고객지원팀</td>
+                <td>2020-08-10 10:10</td>
+                <td>2020-08-10 10:10</td>
+                <td>정상</td>
+                <td>마스터(전체)</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger" disabled>삭제</button><!-- 최상위 마스터 계정 삭제버튼 disabled -->
+                        <a href="/webadmin/page/sub_09_01_modify.html" class="btn btn-sm btn-outline-primary">수정</a>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>998</td>
+                <td>aaa@mail.com</td>
+                <td>김사원</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>정관장 대형마트팀</td>
+                <td>강서구 이마트</td>
+                <td>팀장</td>
+                <td>고객지원팀</td>
+                <td>2020-08-10 10:10</td>
+                <td>2020-08-10 10:10</td>
+                <td>정지</td>
+                <td>3가지 메뉴</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        <a href="/webadmin/page/sub_09_01_modify.html" class="btn btn-sm btn-outline-primary">수정</a>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.sub0903type){
+            <tr>
+                <td><input class="form-check-input" type="checkbox" id="chk-list01" name="chk-list" value="" aria-label="항목 선택"></td>
+                <td>999</td>
+                <td>유니에스</td>
+                <td>본사</td>
+                <td>롯데백화점 강서점</td>
+                <td>김담당</td>
+                <td>2021-04-01 10:20</td>
+                <td>
+                    <div class="d-inline-flex gap-1">
+                        <button type="button" class="btn btn-sm btn-outline-danger">삭제</button>
+                        <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#modify-modal">수정</button>
+                    </div>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+@@if(!context.sub0204type && !context.sub06type){
+</div>
+}
+<!-- // table -->
+@@if(context.control){
+<!-- table control -->
+<div class="d-flex gap-1 p-2 border-bottom bg-light">
+    @@if(context.excelOnly){
+    <button type="button" class="btn btn-sm btn-outline-secondary ms-auto"><i class="bi bi-download me-1"></i>엑셀다운로드</button>    
+    }
+    @@if(!context.excelOnly){
+        <button type="button" class="btn btn-sm btn-outline-secondary me-auto">선택 삭제</button>
+        @@if(context.excel){
+        <button type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-download me-1"></i>엑셀다운로드</button>
+        }
+        @@if(context.notice){
+        <button type="button" class="btn btn-sm btn-outline-secondary">공지해제</button>
+        <button type="button" class="btn btn-sm btn-outline-secondary">공지등록</button>
+        }
+        @@if(context.write){
+        <a href="/webadmin/page/@@write.link" type="button" class="btn btn-sm btn-outline-secondary">@@write.value</a>
+        }
+        @@if(context.modal){
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#@@modal.id-modal">@@modal.value</button>
+        }
+        @@if(context.modal2){
+        <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#@@modal2.id-modal">@@modal2.value</button>
+        }
+    }
+</div>
+<!-- // table control -->
+}

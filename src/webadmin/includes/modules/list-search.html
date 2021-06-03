@@ -1,0 +1,340 @@
+<div class="search-wrap">
+    <table class="table row-table caption-top">
+        <caption><i class="bi bi-search me-2"></i>검색</caption>
+        <colgroup>
+            <col style="width:14%">
+            <col style="width:36%">
+            <col style="width:14%">
+            <col>
+        </colgroup>
+        <tbody>
+            @@if(context.period){
+            <tr>
+                <th scope="row">@@if(context.period.label){@@period.label}@@if(!context.period.label){기간}</th>
+                <td colspan="3">
+                    <div class="d-flex gap-1 align-items-center">
+                        @@if(context.period === 'type2'){
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 검색 기준 선택">
+                            <option value="">매출일</option>
+                            <option value="">등록일</option>
+                        </select>
+                        }
+                        @@if(context.period === 'type3'){
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 검색 기준 선택">
+                            <option value="">신청일</option>
+                            <option value="">연장일</option>
+                        </select>
+                        }
+                        @@if(context.period === 'type4'){
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 검색 기준 선택">
+                            <option value="">신청일</option>
+                            <option value="">시작일</option>
+                            <option value="">종료일</option>
+                        </select>
+                        }
+                        <div class="datepicker-wrap">
+                            <input type="text" class="form-control form-control-sm datepicker-here">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        @@include('./modules/period-select.html', {
+                            slt : [
+                                '오늘', '어제', '3일', '7일', '15일', '1개월', '3개월', '6개월', '전체'
+                            ]
+                        })
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.period2){
+            <tr>
+                <th scope="row">기준 기간</th>
+                <td colspan="3">
+                    <div class="d-flex gap-1 align-items-center">
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 년도 선택">
+                            <option value="">년</option>
+                            <option value="">2020</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 월 선택">
+                            <option value="">월</option>
+                            <option value="">1</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 일 선택">
+                            <option value="">일</option>
+                            <option value="">1</option>
+                        </select>
+                        <span class="text">~</span>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 년도 선택">
+                            <option value="">년</option>
+                            <option value="">2020</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 월 선택">
+                            <option value="">월</option>
+                            <option value="">1</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 일 선택">
+                            <option value="">일</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">비교 기간</th>
+                <td colspan="3">
+                    <div class="d-flex gap-1 align-items-center">
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 년도 선택">
+                            <option value="">년</option>
+                            <option value="">2020</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 월 선택">
+                            <option value="">월</option>
+                            <option value="">1</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 일 선택">
+                            <option value="">일</option>
+                            <option value="">1</option>
+                        </select>
+                        <span class="text">~</span>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 년도 선택">
+                            <option value="">년</option>
+                            <option value="">2020</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 월 선택">
+                            <option value="">월</option>
+                            <option value="">1</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 시작 일 선택">
+                            <option value="">일</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.period3){
+            <tr>
+                <th scope="row">기간</th>
+                <td colspan="3">
+                    <div class="d-flex gap-1 align-items-center">
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 년도 선택">
+                            <option value="">년</option>
+                            <option value="">2020</option>
+                        </select>
+                        <select class="form-select form-select-sm w-auto" aria-label="기간 월 선택">
+                            <option value="">월</option>
+                            <option value="">1</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.date){
+            <tr>
+                <th scope="row">@@date.label</th>
+                <td colspan="3">
+                    <div class="d-flex gap-1 align-items-center">
+                        <div class="datepicker-wrap">
+                            <input type="text" class="form-control form-control-sm datepicker-here">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <span class="txt">~</span>
+                        <div class="datepicker-wrap">
+                            <input type="text" class="form-control form-control-sm datepicker-here">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        @@include('./modules/period-select.html', {
+                            slt : [
+                                '오늘', '어제', '3일', '7일', '15일', '1개월', '3개월', '6개월', '전체'
+                            ]
+                        })
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.select3){
+            <tr>
+                <th scope="row">구분</th>
+                <td colspan="3">
+                    <div class="d-flex align-items-center gap-1">
+                        <select class="form-select form-select-sm w-20" aria-label="부서명 선택">
+                            <option value="">부서명</option>
+                        </select>
+                        <select class="form-select form-select-sm w-20" aria-label="이름 선택">
+                            <option value="">이름</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.complex){
+            <tr>
+                <th scope="row">@@complex.label1</th>
+                <td>
+                    <div class="d-flex gap-5 align-items-center" data-toggle="allChk">
+                        @@if(context.complex.all){
+                        <div class="form-check m-0">
+                            <input class="form-check-input chk-all" type="checkbox" id="chk-@@complex.id-all" name="chk-@@complex.id" value="">
+                            <label class="form-check-label" for="chk-@@complex.id-all">전체</label>
+                        </div>    
+                        }
+                        @@for(var j=0; j < complex.slt.length; j++){
+                        <div class="form-check m-0">
+                            <input class="form-check-input" type="checkbox" id="chk-@@complex.id`+[j]+`" name="chk-@@complex.id" value="">
+                            <label class="form-check-label" for="chk-@@complex.id`+[j]+`">`+complex.slt[j]+`</label>
+                        </div>
+                        }
+                    </div>
+                </td>
+                <th scope="row">@@complex.label2</th>
+                <td>
+                    <select class="form-select form-select-sm w-50" aria-label="@@complex.label2 선택">
+                        <option value="">선택</option>
+                    </select>
+                </td>
+            </tr>
+            }
+            @@if(context.select){
+            <tr>
+                <th scope="row">근무처 소속</th>
+                <td colspan="3">
+                    <div class="d-flex gap-1">
+                        <select class="form-select form-select-sm w-20" aria-label="법인 선택">
+                            <option value="">법인선택</option>
+                            <option value="">유니에스</option>
+                            <option value="">유니토스</option>
+                        </select>
+                        <select class="form-select form-select-sm w-20" aria-label="소속 선택">
+                            <option value="">소속선택</option>
+                            <option value="">본사</option>
+                            <option value="">대전지사</option>
+                        </select>
+                        <select class="form-select form-select-sm w-20" aria-label="매장 선택">
+                            <option value="">매장선택</option>
+                            <option value="">정관장 대형마트</option>
+                            <option value="">동인비 백화점</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">채널 소속</th>
+                <td colspan="3">
+                    <select class="form-select form-select-sm w-20" aria-label="채널 선택">
+                        <option value="">채널선택</option>
+                        <option value="">대형마트</option>
+                        <option value="">백화점</option>
+                        <option value="">면세점</option>
+                        <option value="">동인비</option>
+                    </select>
+                </td>
+            </tr>
+                @@if(context.select === 'plus'){
+                <tr>
+                    <th scope="row">직급</th>
+                    <td colspan="3">
+                        <select class="form-select form-select-sm w-20" aria-label="직급 선택">
+                            <option value="">직급선택</option>
+                        </select>
+                    </td>
+                </tr>
+                }
+            }
+            @@if(context.select2){
+            <tr>
+                <th scope="row">근무처 소속</th>
+                <td colspan="3">
+                    <div class="d-flex gap-1">
+                        <select class="form-select form-select-sm w-20" aria-label="법인 선택">
+                            <option value="">법인선택</option>
+                            <option value="">유니에스</option>
+                            <option value="">유니토스</option>
+                        </select>
+                        <select class="form-select form-select-sm w-20" aria-label="소속 선택">
+                            <option value="">소속선택</option>
+                            <option value="">본사</option>
+                            <option value="">대전지사</option>
+                        </select>
+                        <select class="form-select form-select-sm w-20" aria-label="매장 선택">
+                            <option value="">매장선택</option>
+                            <option value="">정관장 대형마트</option>
+                            <option value="">동인비 백화점</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.chk){
+            <tr>
+                <th scope="row">@@chk.label</th>
+                <td colspan="3">
+                    <div class="d-flex gap-5 align-items-center" data-toggle="allChk">
+                        @@if(context.chk.all){
+                        <div class="form-check m-0">
+                            <input class="form-check-input chk-all" type="checkbox" id="chk-dvs-all" name="chk-dvs" value="">
+                            <label class="form-check-label" for="chk-dvs-all">전체</label>
+                        </div>    
+                        }
+                        @@for(var i=0; i < chk.slt.length; i++){
+                        <div class="form-check m-0">
+                            <input class="form-check-input" type="checkbox" id="chk-dvs`+[i]+`" name="chk-dvs" value="">
+                            <label class="form-check-label" for="chk-dvs`+[i]+`">`+chk.slt[i]+`</label>
+                        </div>
+                        }
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.chkDouble){
+            <tr>
+                <th scope="row">@@chk1.label</th>
+                <td colspan="3">
+                    <div class="d-flex gap-5 align-items-center" data-toggle="allChk">
+                        @@if(context.chk1.all){
+                        <div class="form-check m-0">
+                            <input class="form-check-input chk-all" type="checkbox" id="chk-dvs-all" name="chk-dvs" value="">
+                            <label class="form-check-label" for="chk-dvs-all">전체</label>
+                        </div>    
+                        }
+                        @@for(var i=0; i < chk1.slt.length; i++){
+                        <div class="form-check m-0">
+                            <input class="form-check-input" type="checkbox" id="chk-dvs`+[i]+`" name="chk-dvs" value="">
+                            <label class="form-check-label" for="chk-dvs`+[i]+`">`+chk1.slt[i]+`</label>
+                        </div>
+                        }
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">@@chk2.label</th>
+                <td colspan="3">
+                    <div class="d-flex gap-5 align-items-center" data-toggle="allChk">
+                        @@if(context.chk2.all){
+                        <div class="form-check m-0">
+                            <input class="form-check-input chk-all" type="checkbox" id="chk-dvs2-all" name="chk-dvs2" value="">
+                            <label class="form-check-label" for="chk-dvs2-all">전체</label>
+                        </div>    
+                        }
+                        @@for(var j=0; j < chk2.slt.length; j++){
+                        <div class="form-check m-0">
+                            <input class="form-check-input" type="checkbox" id="chk-dvs2`+[j]+`" name="chk-dvs2" value="">
+                            <label class="form-check-label" for="chk-dvs2`+[j]+`">`+chk2.slt[j]+`</label>
+                        </div>
+                        }
+                    </div>
+                </td>
+            </tr>
+            }
+            @@if(context.search){
+            <tr>
+                <th scope="row">검색</th>
+                <td colspan="3">
+                    <input type="text" class="form-control form-control-sm" placeholder="@@search.placeholder">
+                </td>
+            </tr>    
+            }
+        </tbody>
+    </table>
+    <div class="btn-wrap mt-3 d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary submit">검색</button>
+    </div>
+</div>

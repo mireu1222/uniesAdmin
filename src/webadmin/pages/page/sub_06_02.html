@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub06 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '06',
+                title : '교육과정관리',
+                dep2tab : true,
+                sub06 : '02'
+            })
+
+            @@include('./modules/list-search.html', {
+                period : true,
+                chkDouble : true,
+                chk1 : {
+                    label : '교육방법',
+                    all : true,
+                    slt : [
+                        '온라인', '오프라인'
+                    ]
+                },
+                chk2 : {
+                    label : '교육구분',
+                    all : true,
+                    slt : [
+                        '입문', '기본', '전문', '필수'
+                    ]
+                },
+                search : {
+                    placeholder : '교육명 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                title : '교육과정 목록'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                modal : {
+                    id : 'write',
+                    value : '교육등록'
+                },
+                sub0602type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    <!-- 교육 등록 modal -->
+    @@include('./modules/modal.html', {
+        id : 'write',
+        size : 'big',
+        title : '교육 등록',
+        sub06type : true,
+        btn : '등록'
+    })
+    <!-- // 교육 등록 modal -->
+    <!-- 교육 수정 modal -->
+    @@include('./modules/modal.html', {
+        id : 'modify',
+        size : 'big',
+        title : '교육 수정',
+        sub06type1 : true,
+        btn : '수정'
+    })
+    <!-- // 교육 수정 modal -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

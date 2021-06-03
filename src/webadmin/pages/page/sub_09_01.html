@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub09 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '09',
+                title : '내부사용자관리',
+                dep2tab : true,
+                sub09 : '01'
+            })
+
+            @@include('./modules/list-search.html', {
+                select:true,
+                chk: {
+                    label : '상태',
+                    all : true,
+                    id : 'chk-state',
+                    slt : [
+                        '정상', '정지'
+                    ]
+                },
+                search : {
+                    placeholder : '이메일, 이름, 사원번호 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                title : '내부사용자 목록'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                modal : {
+                    id : 'modify',
+                    value : '부서명 수정'
+                },
+                modal2 : {
+                    id : 'add',
+                    value : '부서명 등록'
+                },
+                write : {
+                    link : 'sub_09_01_write.html',
+                    value : '사용자 등록'
+                },
+                sub0901type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    <!-- 부서등록 modal -->
+    @@include('./modules/modal.html', {
+        id : 'add',
+        title : '부서 등록',
+        sub0901type : true,
+        btn : '등록'
+    })
+    <!-- // 부서등록 modal -->
+    <!-- 부서수정 modal -->
+    @@include('./modules/modal.html', {
+        id : 'modify',
+        title : '부서명 수정',
+        sub0901type2 : true,
+        btn : '수정'
+    })
+    <!-- // 부서수정 modal -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

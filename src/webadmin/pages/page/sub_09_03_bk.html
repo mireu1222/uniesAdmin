@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub09 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '09',
+                title : '소속구분관리',
+                dep2tab : true,
+                sub09 : '03'
+            })
+
+            <div class="treemenu-wrap">
+                <h3 class="mb-2"><i class="bi bi-gear-fill me-2"></i>소속구분관리</h3>
+                <div class="tree-wrap">
+                    <div class="tree-head">
+                        <button type="button" class="btn btn-sm btn-outline-primary first-cate-add"><i class="bi bi-plus-circle me-1"></i>대분류 추가</button>
+                        <button type="button" class="btn btn-sm btn-outline-danger"><i class="bi bi-x-circle me-1"></i>삭제</button>
+                    </div>
+                    <div class="tree-body">
+                        <ul class="category-list treemenu-ui"></ul>
+                    </div>
+                </div>
+                <div class="tree-setup">
+                    <table class="table row-table caption-top">
+                        <colgroup>
+                            <col style="width:20%">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">현재 분류명</th>
+                                <td>(소속)본사</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">변경할 분류명</th>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">코드번호</th>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">노출상태</th>
+                                <td>
+                                    <div class="d-flex gap-5 align-items-center">
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="radio" id="rdo01" name="rdo" value="">
+                                            <label class="form-check-label" for="rdo01">노출</label>
+                                        </div>
+                                        <div class="form-check m-0">
+                                            <input class="form-check-input" type="radio" id="rdo02" name="rdo" value="">
+                                            <label class="form-check-label" for="rdo02">숨김</label>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="btn-wrap d-flex justify-content-end gap-1 mt-4">
+                <input type="reset" class="btn btn-gray submit" value="취소">
+                <button type="submit" class="btn btn-primary submit">저장</button>
+            </div>
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+
+    <script>
+        // treemenu
+        treemenu('.treemenu-ui');
+
+        // treemenu
+        function treemenu(obj) {
+            var $tree = $(obj);
+
+            // DOM template
+            var editTemp = 
+                    '<div class="cate-inner edit">' + 
+                    '   <input type="text" class="form-control form-control-sm" placeholder="분류명 입력">' + 
+                    '</div>';
+            var addTemp = '<li class="new-add">'+ editTemp +'</li>';
+            var addDepthTemp = '<ul>' + addTemp + '</ul>';
+            
+            function returnEditTemp(inputValue) {
+                var editTemp = 
+                    '<div class="cate-inner edit">' + 
+                    '   <input type="text" class="form-control form-control-sm" placeholder="분류명 입력" value="' + inputValue +'" onfocus="let value=this.value; this.value=null; this.value=value">' + 
+                    '</div>';
+                return editTemp;
+            }
+
+            function returnListTemp(inputValue) {
+                var listTemp = 
+                    '<div class="cate-inner">' + 
+                    '    <div class="cate-cont">' +
+                    '        <p class="category">' + inputValue +'</p>' + 
+                    '        <span class="count">(0)</span>' +
+                    '    </div><button type="button" class="btn cate-add" aria-label="하위분류 추가"><i class="bi bi-plus-circle"></i></button>' +
+                    '</div>';
+                return listTemp;
+            }
+
+            function addNew() {
+                if ( $tree.find('li.new-add').length > 0 ) {
+                    var newadd = $('li.new-add'),
+                        depth = newadd.children('ul').children().length,
+                        ipt = newadd.find('input[type=text]'),
+                        inputValue = ipt.val().length > 0 ? ipt.val() : '분류명 입력';
+
+                    newadd.prepend(returnListTemp(inputValue));
+                    newadd.find('.cate-inner.edit').remove();
+                    newadd.removeClass('new-add');
+                }
+            }
+
+            // 대분류 추가
+            $('.first-cate-add').click(function(){
+                addNew();
+                $tree.append(addTemp).find('input').focus();
+            });
+
+            // 항목 선택
+            $(document).on('click', '.cate-cont', function(){
+                var $cate = $(this),
+                    $wrap = $cate.parents(obj),
+                    $inner = $cate.closest('.cate-inner'),
+                    $cateall = $wrap.find('.cate-inner');
+
+                if ( $inner.hasClass('edit') ) return;
+
+                addNew();
+                if ( $inner.hasClass('active') ) {
+                    var inputValue = $(this).find('.category').text();
+                    $(this).closest('li').addClass('new-add');
+                    $(this).closest('li').prepend(returnEditTemp(inputValue)).find('input').focus();
+                    $inner.remove();
+                } else {
+                    $cateall.removeClass('active');
+                    $inner.addClass('active');
+                }
+            });
+
+            // 하위 추가
+            $(document).on('click', '.cate-add', function(){
+                var $add = $(this),
+                    $li = $add.closest('li'),
+                    $depth = $li.find('ul');
+
+                addNew();
+                if ( $depth.length > 0 ) {
+
+                    $depth.append(addTemp).find('input').focus();
+                } else {
+                    $li.append(addDepthTemp).find('input').focus();
+                }
+            });
+
+            // input blur일 때 
+            $(document).on('blur', '.new-add input[type=text]', function(){
+                addNew();
+            });
+        }
+    </script>
+</body>
+</html>

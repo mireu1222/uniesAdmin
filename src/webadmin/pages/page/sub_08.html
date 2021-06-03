@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub08 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '08',
+                title : '일정관리',
+            })
+
+            <div class="calendar-wrap">
+                <div class="cal-head">
+                    <p class="cal-now">
+                        <span class="year">2021년</span>
+                        <span class="month">3월</span>
+                    </p>
+                    <button type="button" class="btn control prev" aria-label="이전달보기"><i class="bi bi-chevron-left"></i></button>
+                    <button type="button" class="btn control next" aria-label="다음달보기"><i class="bi bi-chevron-right"></i></button>
+                </div>
+                <div class="cal-sorting">
+                    <div class="sorting-color">
+                        <p>채널별 색상구분</p>
+                        <ul>
+                            <li class="cate01">공통</li>
+                            <li class="cate02">대형마트</li>
+                            <li class="cate03">백화점</li>
+                            <li class="cate04">면세점</li>
+                            <li class="cate05">동인비</li>
+                        </ul>
+                    </div>
+                    <div class="sorting-channel">
+                        <p>채널선택</p>
+                        <select class="form-select form-select-sm w-auto" aria-label="채널 선택">
+                            <option value="">공통</option>
+                            <option value="">대형마트</option>
+                            <option value="">백화점</option>
+                            <option value="">면세점</option>
+                            <option value="">동인비</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="cal-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">일</th>
+                                <th scope="col">월</th>
+                                <th scope="col">화</th>
+                                <th scope="col">수</th>
+                                <th scope="col">목</th>
+                                <th scope="col">금</th>
+                                <th scope="col">토</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">1</p>
+                                        <!-- 일정 없을 때 DOM 삭제 -->
+                                        <ul class="lists">
+                                            <!-- ch00 : 전체 / ch01 : 대형마트 / ch02 : 백화점 / ch03 : 면세점 / ch04 : 동인비 -->
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch00">전체공지</a></li>
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch01">대형마트 교육</a></li>
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch02">백화점 교육</a></li>
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch03">면세점 교육</a></li>
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch04">동인비 교육</a></li>
+                                        </ul>
+                                        <!-- // 일정 없을 때 DOM 삭제 -->
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">2</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">3</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">4</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">5</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">6</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">7</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">8</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">9</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">10</p>
+                                        <ul class="lists">
+                                            <!-- ch00 : 전체 / ch01 : 대형마트 / ch02 : 백화점 / ch03 : 면세점 / ch04 : 동인비 -->
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch00">전체공지</a></li>
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch01">대형마트 교육</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">11</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">12</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">13</p>
+                                        <ul class="lists">
+                                            <!-- ch00 : 전체 / ch01 : 대형마트 / ch02 : 백화점 / ch03 : 면세점 / ch04 : 동인비 -->
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch03">면세점 교육</a></li>
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch04">동인비 교육</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">14</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">15</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">16</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">17</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">18</p>
+                                        <ul class="lists">
+                                            <!-- ch00 : 전체 / ch01 : 대형마트 / ch02 : 백화점 / ch03 : 면세점 / ch04 : 동인비 -->
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch00">전체공지</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">19</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">20</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">21</p>
+                                        <ul class="lists">
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch04">동인비 교육</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">22</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">23</p>
+                                        <ul class="lists">
+                                            <!-- ch00 : 전체 / ch01 : 대형마트 / ch02 : 백화점 / ch03 : 면세점 / ch04 : 동인비 -->
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch01">대형마트 교육</a></li>
+                                            <li><a href="/webadmin/page/sub_08_modify.html" class="cal ch02">백화점 교육</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">24</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">25</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">26</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">27</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">28</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">29</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="inner">
+                                        <p class="date">30</p>
+                                    </div>
+                                </td>
+                                <td class="disabled"><!-- 이번달 아닐 때 disabled, 해당 날짜에 일정 있어도 노출 X -->
+                                    <div class="inner">
+                                        <p class="date">31</p>
+                                    </div>
+                                </td>
+                                <td class="disabled">
+                                    <div class="inner">
+                                        <p class="date">1</p>
+                                    </div>
+                                </td>
+                                <td class="disabled">
+                                    <div class="inner">
+                                        <p class="date">2</p>
+                                    </div>
+                                </td>
+                                <td class="disabled">
+                                    <div class="inner">
+                                        <p class="date">3</p>
+                                    </div>
+                                </td>
+                                <td class="disabled">
+                                    <div class="inner">
+                                        <p class="date">4</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-wrap d-flex justify-content-end gap-1 mt-4">
+                    <a href="/webadmin/page/sub_08_write.html" class="btn btn-primary submit">일정추가</a>
+                </div>
+            </div>
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

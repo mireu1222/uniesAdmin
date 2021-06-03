@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub06 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '06',
+                title : '교육이력관리',
+                dep2tab : true,
+                sub06 : '01'
+            })
+
+            @@include('./modules/list-search.html', {
+                period : true,
+                select : 'plus',
+                search : {
+                    placeholder : '이름, 사번, 휴대폰번호 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                title : '교육내역 목록'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                modal : {
+                    id : 'assignment',
+                    value : '교육배정'
+                },
+                sub06type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    <!-- 교육 배정 modal -->
+    @@include('./modules/modal.html', {
+        id : 'assignment',
+        size : 'big',
+        title : '교육 배정',
+        sub0601type : true,
+        btn : '적용'
+    })
+    <!-- // 교육 등록 modal -->
+    <!-- 교육 관리 modal -->
+    @@include('./modules/modal.html', {
+        id : 'set',
+        size : 'big',
+        title : '교육 관리',
+        sub0601type2 : true,
+        btn : '적용'
+    })
+    <!-- // 교육 관리 modal -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

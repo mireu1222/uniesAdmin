@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub09 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '09',
+                dep2 : '0901',
+                title : '내부사용자 수정',
+            })
+
+            @@include('./modules/write-table.html', {
+                caption : '사용자 수정',
+                sub0901type : true,
+                modify : true,
+                button : true,
+                btntype : 'modify',
+                prev : 'sub_09_01.html'
+            })
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

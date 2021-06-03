@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub01 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '01',
+                title : '인사 관리',
+                dep2tab : true,
+                sub01 : '01'
+            })
+
+            @@include('./modules/list-search.html', {
+                period : true,
+                select : true,
+                search : {
+                    placeholder : '이름, 사번, 휴대폰번호 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                order : '0101',
+                title : '사원 목록'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                write : {
+                    link : 'sub_01_01_write.html',
+                    value : '사원 등록'
+                },
+                sub0101type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+
+    <script>
+        function openWindowPop(url, name) {
+            var options = 'width=700, height=600, status=no, menubar=no, toolbar=no, resizable=no';
+            window.open(url, name, options);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub07 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '07',
+                title : '업무관리 등록',
+                dep2 : '0701'
+            })
+
+            @@include('./modules/write-table.html', {
+                caption : '게시글 등록',
+                sub0701type : true,
+                button : true,
+                btntype : 'save',
+                prev : 'sub_07_01.html'
+            })
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub07 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '07',
+                title : '업무관리 보기',
+                dep2 : '0701'
+            })
+
+            <table class="table row-table caption-top">
+                <colgroup>
+                    <col style="width:14%">
+                    <col style="width:36%">
+                    <col style="width:14%">
+                    <col>
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row">등록일</th>
+                        <td>2020-03-22 10:10</td>
+                        <th scope="row">작성자</th>
+                        <td>관리자</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">채널선택</th>
+                        <td colspan="3">대형마트</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">제목</th>
+                        <td colspan="3">제목입니다.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">내용</th>
+                        <td colspan="3">내용입니다.</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">첨부파일</th>
+                        <td colspan="3"><a href="#n" class="text-link"><i class="bi bi-download me-1"></i>파일.pdf</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="p-4">
+                            <div class="reply-wrap">
+                                <p class="total">댓글 <em>4</em>개</p>
+                                <ul class="lists">
+                                    <!-- loop -->
+                                    <li>
+                                        <!-- 원 댓글 -->
+                                        <div class="origin">
+                                            <!-- 댓글 -->
+                                            <div class="replys">
+                                                <div class="head">
+                                                    <p class="writtenby">백탁권</p>
+                                                    <p class="date">2021.03.21. 09:33</p>
+                                                </div>
+                                                <div class="body">
+                                                    댓글 내용을 불러옵니다. 댓글 내용을 불러옵니다. 댓글 내용을 불러옵니다. 
+                                                </div>
+                                                <div class="foot">
+                                                    <button type="button" class="btn btns write reply-btn">답글 쓰기</button>
+                                                    <button type="button" class="btn btns delete">삭제</button>
+                                                </div>
+                                            </div>
+                                            <!-- // 댓글 -->
+                                        </div>
+                                        <!-- // 원 댓글 -->
+                                        <!-- 대댓글 -->
+                                        <div class="add">
+                                            <!-- 댓글 -->
+                                            <div class="replys">
+                                                <div class="head">
+                                                    <p class="writtenby">김사원</p>
+                                                    <p class="date">2021.03.21. 09:33</p>
+                                                </div>
+                                                <div class="body">
+                                                    댓글 내용을 불러옵니다.
+                                                </div>
+                                                <div class="foot">
+                                                    <button type="button" class="btn btns write reply-btn">답글 쓰기</button>
+                                                    <button type="button" class="btn btns delete">삭제</button>
+                                                </div>
+                                            </div>
+                                            <!-- // 댓글 -->
+                                        </div>
+                                        <!-- // 대댓글 -->
+                                        <!-- 대댓글 -->
+                                        <div class="add">
+                                            <!-- 댓글 -->
+                                            <div class="replys">
+                                                <div class="head">
+                                                    <p class="writtenby">관리자</p>
+                                                    <p class="date">2021.03.21. 09:33</p>
+                                                </div>
+                                                <div class="body">
+                                                    댓글 내용을 불러옵니다.
+                                                </div>
+                                                <div class="foot">
+                                                    <button type="button" class="btn btns write reply-btn">답글 쓰기</button>
+                                                    <button type="button" class="btn btns modify">수정</button>
+                                                    <button type="button" class="btn btns delete">삭제</button>
+                                                </div>
+                                            </div>
+                                            <!-- // 댓글 -->
+                                        </div>
+                                        <!-- // 대댓글 -->
+                                    </li>
+                                    <!-- // loop -->
+                                    <li>
+                                        <!-- 원 댓글 -->
+                                        <div class="origin">
+                                            <!-- 댓글 -->
+                                            <div class="replys">
+                                                <div class="head">
+                                                    <p class="writtenby">김사원</p>
+                                                    <p class="date">2021.03.21. 09:33</p>
+                                                </div>
+                                                <div class="body">
+                                                    댓글 내용을 불러옵니다. 댓글 내용을 불러옵니다. 댓글 내용을 불러옵니다. 
+                                                </div>
+                                                <div class="foot">
+                                                    <button type="button" class="btn btns write reply-btn">답글 쓰기</button>
+                                                    <button type="button" class="btn btns delete">삭제</button>
+                                                </div>
+                                            </div>
+                                            <!-- // 댓글 -->
+                                        </div>
+                                        <!-- // 원 댓글 -->
+                                    </li>
+                                </ul>
+                                <!-- 답글 쓰기 -->
+                                <div class="origin-write">
+                                    <p class="title">댓글 남기기</p>
+                                    <div class="reply-inputs">
+                                        <p class="writtenby">김사원</p>
+                                        <textarea class="autosize" placeholder="댓글을 남겨주세요."></textarea>
+                                        <span class="count"><em>0</em>/2,000 byte</span>
+                                        <input type="button" value="등록" class="btn btns write">
+                                    </div>
+                                </div>
+                                <!-- // 답글 쓰기 -->
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="btn-wrap d-flex justify-content-end gap-1 mt-4">
+                <a href="/webadmin/page/sub_07_01.html" class="btn btn-gray submit">목록</a>
+            </div>
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+
+    <script>
+        /* reply DOM script */
+        $('.reply-wrap .reply-btn').each(function(){
+            var $btn = $(this);
+
+            $btn.click(function(){
+                var $reply = $(this).closest('.replys'),
+                    $writtenby = $reply.find('.writtenby').text();
+
+                var replyTemplate =  
+                    '<div class="reply-inputs">'+
+                    '   <p class="writtenby">김사원</p>'+
+                    '   <textarea class="autosize" placeholder="' + $writtenby + '님께 답글쓰기"></textarea>'+
+                    '   <span class="count"><em>0</em>/2,000 byte</span>'+
+                    '   <input type="button" value="등록" class="btn btns write">'+
+                    '</div>';
+
+                if( $(this).hasClass('open') ) {
+                    if(confirm('댓글 작성을 취소하시겠습니까?') == true){
+                        $(this).removeClass('open');
+                        $(this).text('답글 쓰기');
+                        $reply.siblings('.reply-inputs').remove();
+                    } else {
+                        return;
+                    }
+                } else {
+                    $(this).addClass('open');
+                    $(this).text('답글 취소');
+                    $reply.after(replyTemplate);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub03 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '03',
+                title : '출근현황',
+                dep2tab : true,
+                sub03 : '01'
+            })
+
+            @@include('./modules/list-search.html', {
+                period : true,
+                select : true,
+                chk : {
+                    label : '출근 구분',
+                    all : true,
+                    slt : [
+                        '출근A', '출근B', '출근C'
+                    ]
+                },
+                search : {
+                    placeholder : '이름, 사번, 휴대폰번호 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                title : '근태 목록'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                modal : {
+                    id : 'write',
+                    value : '등록'
+                },
+                sub0301type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    <!-- 등록 modal -->
+    @@include('./modules/modal.html', {
+        id : 'write',
+        title : '출/퇴근 등록',
+        sub0301type : true,
+        btn : '등록'
+    })
+    <!-- // 등록 modal -->
+    <!-- 수정 modal -->
+    @@include('./modules/modal.html', {
+        id : 'modify',
+        title : '출/퇴근 수정',
+        sub0301type2 : true,
+        btn : '수정'
+    })
+    <!-- // 수정 modal -->
+    <!-- 수정이력 modal -->
+    @@include('./modules/modal.html', {
+        size : 'big',
+        id : 'list',
+        title : '출/퇴근 수정이력',
+        sub0301type3 : true,
+        onebtn : true
+    })
+    <!-- // 수정이력 modal -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

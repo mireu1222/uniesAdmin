@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub01 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '01',
+                title : '퇴사자 관리',
+                dep2tab : true,
+                sub01 : '02'
+            })
+
+            @@include('./modules/list-search.html', {
+                date : {
+                    label : '퇴사일'
+                },
+                select : true,
+                search : {
+                    placeholder : '이름, 사번, 휴대폰번호 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                order : '0102',
+                title : '사원 목록'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                sub0102type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

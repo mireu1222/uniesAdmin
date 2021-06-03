@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub07 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '07',
+                title : '업무관리',
+                dep2tab : true,
+                sub07 : '01'
+            })
+
+            @@include('./modules/list-search.html', {
+                period : {
+                    label : '등록일'
+                },
+                chkDouble : true,
+                chk1 : {
+                    label : '노출여부',
+                    all : true,
+                    slt : [
+                        '노출', '비노출'
+                    ]
+                },
+                chk2 : {
+                    label : '채널',
+                    all : true,
+                    slt : [
+                        '대형마트', '백화점', '면세점', '동인비'
+                    ]
+                },
+                search : {
+                    placeholder : '제목 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                title : '업무관리 목록'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                notice : true,
+                write : {
+                    link : 'sub_07_01_write.html',
+                    value : '글등록'
+                },
+                sub0701type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

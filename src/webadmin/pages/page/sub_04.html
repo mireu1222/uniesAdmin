@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub04 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '04',
+                title : '연장신청관리',
+            })
+
+            @@include('./modules/list-search.html', {
+                period : 'type3',
+                select:true,
+                chk: {
+                    label : '상태',
+                    all : true,
+                    slt : [
+                        '접수', '취소', '확인'
+                    ],
+                    label2 : '매장명'
+                },
+                search : {
+                    placeholder : '이름, 사번, 휴대폰번호 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                title : '연장신청 목록'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                sub04type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./modules/modal.html', {
+        id : 'modify',
+        title : '연장신청 관리',
+        sub04type : true,
+        btn : '저장'
+    })
+
+    @@include('./layout/foot.html')
+
+    <script>
+        function openWindowPop(url, name){
+            var options = 'width=814, height=800, status=no, menubar=no, toolbar=no, resizable=no';
+            window.open(url, name, options);
+        }
+    </script>
+</body>
+</html>

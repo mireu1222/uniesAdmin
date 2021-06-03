@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub02 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '02',
+                title : '매출내역',
+                dep2tab : true,
+                sub02 : '01'
+            })
+
+            @@include('./modules/list-search.html', {
+                period : 'type2',
+                select : true,
+                search : {
+                    placeholder : '매장명, 소속 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                order : '0201',
+                title : '매출이력'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                modal : {
+                    id : 'write',
+                    value : '매출등록'
+                },
+                sub0201type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    <!-- 수정 modal -->
+    @@include('./modules/modal.html', {
+        id : 'modify',
+        title : '매출수정',
+        sub0201type : true,
+        btn : '수정'
+    })
+    <!-- 수정 modal -->
+    <!-- 매출등록 modal -->
+    @@include('./modules/modal.html', {
+        id : 'write',
+        title : '매출등록',
+        sub0201type2 : true,
+        btn : '등록'
+    })
+    <!-- // 매출등록 modal -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

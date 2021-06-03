@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub02 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '02',
+                title : '신제품관리',
+                dep2tab : true,
+                sub02 : '02'
+            })
+
+            @@include('./modules/list-search.html', {
+                period : 'type2',
+                select : true,
+                search : {
+                    placeholder : '매장명, 소속, 신제품명 입력'
+                }
+            })
+
+            @@include('./modules/filter.html', {
+                title : '신제품 매출이력'
+            })
+
+            @@include('./modules/list-table.html', {
+                control : true,
+                excel : true,
+                modal : {
+                    id : 'new-modify',
+                    value : '신제품 수정'
+                },
+                modal2 : {
+                    id : 'write',
+                    value : '신제품 등록'
+                },
+                sub0202type : true
+            })
+
+            @@include('./modules/pagination.html')
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    <!-- 매출수정 modal -->
+    @@include('./modules/modal.html', {
+        id : 'modify',
+        title : '신제품 매출 수정',
+        sub0202type : true,
+        btn : '수정'
+    })
+    <!-- 매출수정 modal -->
+    <!-- 신제품 등록 modal -->
+    @@include('./modules/modal.html', {
+        id : 'write',
+        title : '신제품 등록',
+        sub0202type2 : true,
+        btn : '등록'
+    })
+    <!-- // 신제품 등록 modal -->
+    <!-- 신제품 수정 modal -->
+    @@include('./modules/modal.html', {
+        id : 'new-modify',
+        title : '신제품 수정',
+        sub0202type3 : true,
+        btn : '수정'
+    })
+    <!-- // 신제품 수정 modal -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

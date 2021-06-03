@@ -1,0 +1,274 @@
+@@if(!context.pw && !context.radio && !context.select && !context.select3 && !context.address && !context.text && !context.fire && !context.checkbox && !context.editor && !context.file && !context.inputDouble && !context.pwModify){
+<tr>
+    <th scope="row"><label for="@@id">@@label</label></th>
+    <td colspan="3">
+        <input type="text" id="@@id" class="form-control form-control-sm"@@if(context.placeholder){ placeholder='@@placeholder'}>
+    </td>
+</tr>
+}
+@@if(context.inputDouble){
+<tr>
+    <th scope="row">@@label</th>
+    <td>
+        @@if(context.inputDouble.btn){
+        <div class="input-group">
+            <input type="text" class="form-control form-control-sm">
+            <button type="button" class="btn btn-sm btn-outline-primary">@@inputDouble.btn</button>
+        </div>
+        }
+        @@if(!context.inputDouble.btn){
+        <input type="text" class="form-control form-control-sm">
+        }
+    </td>
+    <th scope="row">@@label2</th>
+    <td>
+        <input type="text" class="form-control form-control-sm">
+    </td>
+</tr>
+}
+@@if(context.pw){
+<tr>
+    <th scope="row"><label for="ipt-pw">비밀번호</label></th>
+    <td>
+        <input type="password" id="ipt-pw" class="form-control form-control-sm">
+    </td>
+    <th scope="row"><label for="ipt-pw-confirm">비밀번호 확인</label></th>
+    <td>
+        <input type="password" id="ipt-pw-confirm" class="form-control form-control-sm">
+    </td>
+</tr>
+}
+@@if(context.pwModify){
+<tr>
+    <th scope="row"><label for="ipt-pw">새 비밀번호</label></th>
+    <td colspan="3">
+        <div class="d-flex align-items-center">
+            <input type="password" id="ipt-pw" class="form-control form-control-sm w-25">
+            <p class="text-danger ms-2">영문, 숫자, 특수문자 포함 띄어쓰기 없이 10자리 이상 20자리 미만 가능</p>
+        </div>
+    </td>
+</tr>
+<tr>
+    <th scope="row"><label for="ipt-pw-confirm">새 비밀번호 확인</label></th>
+    <td colspan="3">
+        <div class="d-flex align-items-center">
+            <input type="password" id="ipt-pw-confirm" class="form-control form-control-sm w-25">
+            <p class="text-danger ms-2">비밀번호 동일하게 재입력</p>
+        </div>
+    </td>
+</tr>
+}
+@@if(context.radio){
+<tr>
+    <th scope="row">@@label</th>
+    <td colspan="3">
+        <div class="d-flex gap-5 align-items-center">
+            @@for(var i=0; i < slt.length; i++){
+            <div class="form-check m-0">
+                <input class="form-check-input" type="radio" id="@@id`+[i]+`" name="@@id" value="">
+                <label class="form-check-label" for="@@id`+[i]+`">`+slt[i]+`</label>
+            </div>
+            }
+            @@if(context.input){
+            <input type="text" class="form-control form-control-sm w-25 ms-n4" placeholder="@@if(!context.placeholder){차단 사유입력}@@if(context.placeholder){@@placeholder}">
+            }
+        </div>
+    </td>
+</tr>
+}
+@@if(context.checkbox){
+<tr>
+    <th scope="row">@@label</th>
+    <td colspan="3">
+        <div class="d-flex gap-5 align-items-center" data-toggle="allChk">
+            @@if(context.all){
+            <div class="form-check m-0">
+                <input class="form-check-input chk-all" type="checkbox" id="@@id-all" name="@@id" value="">
+                <label class="form-check-label" for="@@id-all">전체</label>
+            </div>    
+            }
+            @@for(var i=0; i < slt.length; i++){
+            <div class="form-check m-0">
+                <input class="form-check-input" type="checkbox" id="@@id`+[i]+`" name="@@id" value="">
+                <label class="form-check-label" for="@@id`+[i]+`">`+slt[i]+`</label>
+            </div>
+            }
+            @@if(context.addtext){
+            <p class="text-danger">※ @@addtext</p>
+            }
+        </div>
+    </td>
+</tr>
+}
+@@if(context.select){
+<tr>
+    <th scope="row">채널 소속</th>
+    <td colspan="3">
+        <div class="d-flex gap-1">
+            <select class="form-select form-select-sm w-20" aria-label="채널 선택">
+                <option value="">채널선택</option>
+                <option value="">대형마트</option>
+                <option value="">백화점</option>
+                <option value="">면세점</option>
+                <option value="">동인비</option>
+            </select>
+            <select class="form-select form-select-sm w-20" aria-label="직급 선택">
+                <option value="">직급선택</option>
+            </select>
+        </div>
+    </td>
+</tr>
+}
+@@if(context.select3){
+<tr>
+    <th scope="row">근무처 소속</th>
+    <td colspan="3">
+        <div class="d-flex gap-1">
+            <select class="form-select form-select-sm w-20" aria-label="법인 선택">
+                <option value="">법인선택</option>
+                <option value="">유니토스</option>
+                <option value="">유니에스</option>
+            </select>
+            <select class="form-select form-select-sm w-20" aria-label="소속 선택">
+                <option value="">소속선택</option>
+                <option value="">본사</option>
+                <option value="">대전지사</option>
+                <option value="">강원지사</option>
+            </select>
+            <select class="form-select form-select-sm w-20" aria-label="매장명 선택">
+                <option value="">매장선택</option>
+            </select>
+        </div>
+    </td>
+</tr>
+}
+@@if(context.address){
+<tr>
+    <th scope="row">@@label</th>
+    <td colspan="3">
+        <div class="input-group w-25">
+            <input type="text" class="form-control form-control-sm" placeholder="우편번호" aria-label="우편번호" aria-describedby="post-find">
+            <button class="btn btn-sm btn-outline-secondary" type="button" id="post-find">주소 검색</button>
+        </div>
+        <div class="d-flex gap-1 mt-1">
+            <input type="text" class="form-control form-control-sm w-50" value="검색한 주소가 입력됨" readonly>
+            <input type="text" class="form-control form-control-sm w-50" placeholder="상세주소입력">
+        </div>
+    </td>
+</tr>
+}
+@@if(context.text){
+    @@if(context.text === 'type2'){
+    <tr>
+        <th scope="row">@@label1</th>
+        <td>@@text1</td>
+        <th scope="row">@@label2</th>
+        <td>@@text2</td>
+    </tr>
+    }
+    @@if(context.text !== 'type2'){
+    <tr>
+        <th scope="row">@@label</th>
+        <td colspan="3">@@text</td>
+    </tr>
+    }
+}
+@@if(context.fire){
+<tr>
+    <th scope="row">퇴사일</th>
+    <td colspan="3">
+        <div class="d-flex gap-1 align-items-center">
+            <div class="datepicker-wrap">
+                <input type="text" class="form-control form-control-sm datepicker-here text-danger">
+                <i class="bi bi-calendar-check"></i>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-danger">적용</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">퇴사취소</button>
+        </div>
+    </td>
+</tr>
+<tr>
+    <th scope="row">퇴사사유</th>
+    <td colspan="3">
+        <select id="selectOption" class="form-select form-select-sm" aria-label="퇴사사유 선택">
+            <optgroup label="개인사정 자진퇴사">
+                <option value="">[1101] 다른 직장으로 옮기기 위해 이직한 경우</option>
+                <option value="">[1102] 본인의 결혼, 출산, 육아를 이유로 퇴사</option>
+                <option value="">[1103] 가족과의 동거를 위한 주소이전</option>
+                <option value="">[1104] 질병, 부상으로 업무수행 곤란</option>
+                <option value="">[1105] 고연령으로 업무수행 곤란</option>
+                <option value="">[1106] 본인의 업무상 과실 또는 능력부족</option>
+                <option value="">[1107] 본인의 사망</option>
+                <option value="">[1108] 학업 또는 병역</option>
+                <option value="">[1109] 동거인, 친족의 부상, 질병, 간호를 위해</option>
+                <option value="">[1110] 위에 해당하지 않는 개인사정</option>
+            </optgroup>
+            <optgroup label="사업장 이전, 근로조건변동, 임금체불 등으로 자진퇴사">
+                <option value="">[1201] 사업장의 이전으로 출, 퇴근 곤란</option>
+                <option value="">[1202] 통근이 불가능한 지역으로 전근</option>
+                <option value="">[1203] 임금, 근로조건이 현저히 낮아짐</option>
+            </optgroup>
+            <optgroup label="경영상 필요 및 인원감축 등에 의한 퇴사">
+                <option value="">[2301] 경영상 필요에 의한 인원감축 퇴사</option>
+                <option value="">[2302] 사업, 부서 폐지되고 신설된 법인으로 전직</option>
+                <option value="">[2303] 회사의 주문량, 작업량 감소로 인하여 이직</option>
+                <option value="">[2305] 기타 회사사정에 의한 권고사직</option>
+            </optgroup>
+            <optgroup label="근로자의 귀책사유에 의한 징계해고">
+                <option value="">[2601] 징계해고 절차를 거쳐 해고된 경우</option>
+                <option value="">[2601] 징계해고에 해당하나 사업주의 권유로 퇴사</option>
+            </optgroup>
+            <optgroup label="정년">
+                <option value="">[3101] 정년에 해당되어 퇴직한 경우</option>
+            </optgroup>
+            <optgroup label="계약기간만료, 공사종료">
+                <option value="">[3201] 근로계약의 기간만료에 따른 퇴사</option>
+                <option value="">[3202] 조건부계약의 조건성취에 따른 퇴사</option>
+            </optgroup>
+            <optgroup label="고용보험 비적용, 이중 고용">
+                <option value="">[4101] 고용보험 적용제외 근로자로 되어</option>
+                <option value="">[4101] 다른 사업장에서 피보험자격 취득</option>
+            </optgroup>
+            <option value="inputDisplay">기타사유</option>
+        </select>
+        <input type="text" class="form-control form-control-sm mt-1" placeholder="기타 사유 입력" disabled>
+    </td>
+</tr>
+}
+@@if(context.editor){
+<tr>
+    <th scope="row">@@label</th>
+    <td colspan="3">
+        @@if(context.editor !== 'text'){
+        <textarea class="form-control form-control-sm">에디터 영역입니다.</textarea>
+        }
+        @@if(context.editor === 'text'){
+        <textarea class="form-control form-control-sm" placeholder="@@label을 입력해주세요."></textarea>   
+        }
+    </td>
+</tr>
+}
+@@if(context.file){
+<tr>
+    <th scope="row">@@label</th>
+    <td colspan="3">
+        @@if(!context.modify){
+        <div class="input-group">
+            <input type="file" class="form-control form-control-sm" id="file-upload" aria-label="파일등록">
+            <button class="btn btn-sm btn-outline-danger" type="button">삭제</button>
+        </div>
+        }
+        @@if(context.modify){
+        <div class="input-group">
+            <input type="file" class="form-control form-control-sm" id="file-upload" aria-label="파일등록">
+        </div>
+        <div class="file-list mt-2">
+            <div class="d-flex align-items-center">
+                <p class="file-name">기업로드된파일명.pdf</p>
+                <a href="#n" class="link-danger ms-2" aria-label="삭제"><i class="bi bi-x-square"></i></a>
+            </div>
+        </div>  
+        }
+    </td>
+</tr>
+}

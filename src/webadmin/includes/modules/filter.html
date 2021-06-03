@@ -1,0 +1,32 @@
+<!-- filter -->
+<div class="filter-wrap d-flex align-items-end mb-2">
+    @@if(context.titleOnly){
+    <h3><i class="bi bi-list-task me-2"></i>@@title</h3>
+    }
+    @@if(!context.titleOnly && !context.noTitle){
+    <h3><i class="bi bi-list-task me-2"></i>@@title</h3>
+    <p class="total me-3">TOTAL : <strong class="text-point">99</strong></p>
+    <p class="pages me-auto">PAGE : <strong class="text-point">1</strong>/3</p>
+    <select class="form-select form-select-sm w-auto" aria-label="노출되는 리스트 갯수 선택">
+        <option value="">10개 보기</option>
+        <option value="">20개 보기</option>
+        <option value="">30개 보기</option>
+        <option value="">40개 보기</option>
+        <option value="">50개 보기</option>
+        <option value="">100개 보기</option>
+    </select>
+    }
+    @@if(context.noTitle){
+    <p class="total me-3">TOTAL : <strong class="text-point">99</strong></p>
+    <p class="pages me-auto">PAGE : <strong class="text-point">1</strong>/3</p>
+    <select class="form-select form-select-sm w-auto" aria-label="노출되는 리스트 갯수 선택">
+        <option value="">10개 보기</option>
+        <option value="">20개 보기</option>
+        <option value="">30개 보기</option>
+        <option value="">40개 보기</option>
+        <option value="">50개 보기</option>
+        <option value="">100개 보기</option>
+    </select>    
+    }
+</div>
+<!-- // filter -->

@@ -1,0 +1,25 @@
+<!-- table control -->
+<div class="table-control d-flex gap-1 border-top">
+    @@if(!context.sub01type){
+    <button type="button" class="btn btn-sm btn-outline-secondary me-auto">선택 삭제</button>
+    }
+    @@if(context.sub01type){
+    <button type="button" class="btn btn-sm btn-outline-secondary">선택 삭제</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary me-auto">선택 복사</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary">엑셀 다운로드</button>    
+    }
+    @@if(!context.eventType && !context.userType){
+    <a href="/webadmin@@page" class="btn btn-sm btn-outline-secondary">등록</a>
+    }
+    @@if(context.eventType){
+    <button type="button" class="btn btn-sm btn-outline-secondary">엑셀 다운로드</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary">이벤트 당첨 확정</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary">당첨 취소</button>
+    }
+    @@if(context.userType){
+    <a href="/webadmin@@page" class="btn btn-sm btn-outline-secondary">사용자 등록</a>
+    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#team-modify">부서명 수정</button>
+    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#team-add">부서 등록</button>
+    }
+</div>
+<!-- // table control -->

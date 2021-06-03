@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub09 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '09',
+                title : '비밀번호 변경',
+                dep2tab : true,
+                sub09 : '02'
+            })
+
+            @@include('./modules/write-table.html', {
+                caption : '비밀번호 변경',
+                sub0902type : true,
+                button : true,
+                btntype : 'reset',
+            })
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

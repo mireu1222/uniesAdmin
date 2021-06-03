@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub09 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '09',
+                dep2 : '0901',
+                title : '내부사용자 등록',
+            })
+
+            @@include('./modules/write-table.html', {
+                caption : '사용자 등록',
+                sub0901type : true,
+                button : true,
+                btntype : 'save',
+                prev : 'sub_09_01.html'
+            })
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>

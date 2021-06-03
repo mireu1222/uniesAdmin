@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    @@include('./layout/head.html')
+</head>
+<body>
+    <!-- body -->
+    <div id="wrap">
+        @@include('./layout/header.html', {
+            sub01 : true
+        })
+
+        <!-- main -->
+        <div id="main">
+            @@include('./layout/page-title.html', {
+                cate : '01',
+                dep2 : '0101',
+                title : '인사기초 등록',
+            })
+
+            <div class="form-container">
+                @@include('./modules/write-table.html', {
+                    caption : '인사 기본정보',
+                    sub0101type : true,
+                    button : true,
+                    btntype : 'save',
+                    prev : 'sub_01_01.html'
+                })
+            </div>
+        </div>
+        <!-- // main -->
+    </div>
+    <!-- // body -->
+
+    @@include('./layout/foot.html')
+</body>
+</html>
